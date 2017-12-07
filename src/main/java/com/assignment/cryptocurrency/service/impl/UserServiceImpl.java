@@ -15,8 +15,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
+  private final UserRepository userRepository;
+
   @Autowired
-  private UserRepository userRepository;
+  public UserServiceImpl(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
   @Override
   public User findByUsername(String username) {
@@ -34,11 +38,6 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public User create(User user) {
-    User existedUser = findByUsername(user.getUsername());
-    if (existedUser != null) {
-      throw new IllegalArgumentException("The user username is already existed!");
-    }
-    userRepository.save(user);
-    return user;
+    return userRepository.save(user);
   }
 }

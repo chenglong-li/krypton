@@ -14,6 +14,11 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @RepositoryRestResource(collectionResourceRel = "user_list", path = "Users", excerptProjection = UserView.class)
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+  User findByUsernameEquals(String username);
+
+  @RestResource(exported = false)
+  User save(User user);
+
   @RestResource(path = "users")
   List<User> findByUsernameContaining(@Param(value = "username") String username);
 }

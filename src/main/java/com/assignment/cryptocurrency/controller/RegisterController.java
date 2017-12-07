@@ -2,9 +2,10 @@ package com.assignment.cryptocurrency.controller;
 
 import com.assignment.cryptocurrency.model.domain.UserDomain;
 import com.assignment.cryptocurrency.model.entity.User;
+import com.assignment.cryptocurrency.service.RegisterService;
 import com.assignment.cryptocurrency.service.UserService;
 import com.assignment.cryptocurrency.util.enums.UserStatus;
-import java.util.Date;
+import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +26,24 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by Jackie on 05/12/2017.
  */
 @RestController
-@RequestMapping(value = "/api/sUsers", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/Users", produces = MediaType.APPLICATION_JSON_VALUE)
 public class RegisterController {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(RegisterController.class);
 
+  private final UserService userService;
+  private final RegisterService registerService;
+
   @Autowired
-  private UserService userService;
+  public RegisterController(UserService userService, RegisterService registerService) {
+    this.userService = userService;
+    this.registerService = registerService;
+  }
 
   @RequestMapping(method = RequestMethod.POST)
-  public User register(@Validated @RequestBody UserDomain userDomain, BindingResult result) {
+  public User register(@Validated @RequestBody UserDomain userDomain,
+      @RequestParam(required = false) String inviteCode, BindingResult result)
+      throws NotFoundException {
     if (result.hasErrors()) {
       throw new IllegalArgumentException(result.getFieldError().getDefaultMessage());
     }
@@ -46,7 +55,7 @@ public class RegisterController {
     user.setLastName(userDomain.getLastName());
     user.setMobile(userDomain.getMobile());
     user.setStatus(UserStatus.NEW.name());
-    userService.create(user);
+    registerService.register(user, inviteCode);
     LOGGER.info("user created");
     return user;
   }
