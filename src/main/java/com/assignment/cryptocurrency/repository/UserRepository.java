@@ -16,9 +16,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
   User findByUsernameEquals(String username);
 
+  User findByUsernameAndPasswordEquals(@Param("username") String username, @Param("password") String password);
+
   @RestResource(exported = false)
   User save(User user);
 
   @RestResource(path = "users")
-  List<User> findByUsernameContaining(@Param(value = "username") String username);
+  List<User> findByUsernameContaining(@Param("username") String username);
 }
