@@ -8,4 +8,6 @@ import javassist.NotFoundException;
  */
 public interface VoucherService {
   Voucher verify(String code) throws NotFoundException;
+
+  Voucher save(Voucher voucher);
 }

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public abstract class AbstractVoucherService {
 
-  private final VoucherRepository voucherRepository;
+  protected final VoucherRepository voucherRepository;
 
   @Autowired
   public AbstractVoucherService(VoucherRepository voucherRepository) {

@@ -4,9 +4,12 @@ import com.assignment.cryptocurrency.general.VoucherServiceFactory;
 import com.assignment.cryptocurrency.model.entity.User;
 import com.assignment.cryptocurrency.model.entity.Voucher;
 import com.assignment.cryptocurrency.repository.UserRepository;
+import com.assignment.cryptocurrency.repository.VoucherRepository;
 import com.assignment.cryptocurrency.service.RegisterService;
 import com.assignment.cryptocurrency.service.VoucherService;
+import com.assignment.cryptocurrency.util.enums.VoucherStatus;
 import com.assignment.cryptocurrency.util.enums.VoucherType;
+import java.util.Random;
 import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +47,11 @@ public class RegisterServiceImpl implements RegisterService {
     if (existedUser != null) {
       throw new IllegalArgumentException("The user username is already existed!");
     }
-    return userRepository.save(user);
+    userRepository.save(user);
+    voucher.setCode(user.getId() + (new Random().nextInt(100)+""));
+    voucher.setLimits(-1);
+    voucher.setStatus(VoucherStatus.INVALID.name());
+    voucherService.save(voucher);
+    return user;
   }
 }

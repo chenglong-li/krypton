@@ -29,4 +29,9 @@ public class InviteCodeServiceImpl extends AbstractVoucherService implements Vou
     }
     return voucher;
   }
+
+  @Override
+  public Voucher save(Voucher voucher) {
+    return voucherRepository.save(voucher);
+  }
 }
