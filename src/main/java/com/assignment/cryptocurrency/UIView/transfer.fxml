@@ -5,13 +5,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:controller="com.assignment.cryptocurrency.UIController.TransferController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="217.0" layoutY="54.0" text="Transfer">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="229.0" layoutY="533.0" mnemonicParsing="false" text="Bach to dashborad" />
+       <Button layoutX="229.0" layoutY="533.0" mnemonicParsing="false" text="Back to dashborad"  fx:id="showDashboardAction"  />
    </children>
 </Pane>

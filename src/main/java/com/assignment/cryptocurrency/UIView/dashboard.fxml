@@ -37,15 +37,15 @@
       </Pane>
       <Pane layoutX="14.0" layoutY="55.0" prefHeight="518.0" prefWidth="207.0">
          <children>
-            <Button layoutX="40.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view all offers" />
-            <Button layoutX="40.0" layoutY="55.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="put new offer" />
-            <Button layoutX="40.0" layoutY="101.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view my offers" />
-            <Button layoutX="38.0" layoutY="235.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="exchange" />
-            <Button layoutX="38.0" layoutY="148.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="accept offer" />
-            <Button layoutX="39.0" layoutY="192.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="transfer" />
-            <Button layoutX="38.0" layoutY="321.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="make order" />
-            <Button layoutX="37.0" layoutY="277.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view all orders" />
-            <Button layoutX="37.0" layoutY="364.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view my orders" fx:id="showViewMyOrdersAction"/>
+            <Button layoutX="40.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view all offers" fx:id="showViewAllOffersAction" />
+            <Button layoutX="40.0" layoutY="55.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="put new offer" fx:id="showPutNewOfferAction" />
+            <Button layoutX="40.0" layoutY="101.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view my offers" fx:id="showViewMyOffersAction" />
+            <Button layoutX="38.0" layoutY="235.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="exchange" fx:id="showExchangeAction" />
+            <Button layoutX="38.0" layoutY="148.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="accept offer" fx:id="showAcceptOfferAction" />
+            <Button layoutX="39.0" layoutY="192.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="transfer" fx:id="showTransferAction" />
+            <Button layoutX="38.0" layoutY="321.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="make order" fx:id="showMakeOrderAction" />
+            <Button layoutX="37.0" layoutY="277.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view all orders" fx:id="showViewAllOrdersAction" />
+            <Button layoutX="37.0" layoutY="364.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view my orders" fx:id="showViewMyOrdersAction" />
          </children>
       </Pane>
    </children>

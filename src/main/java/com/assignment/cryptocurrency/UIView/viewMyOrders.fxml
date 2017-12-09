@@ -12,6 +12,6 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="229.0" layoutY="533.0" mnemonicParsing="false" text="Bach to dashborad"  fx:id="showDashboardAction"  />
+      <Button layoutX="229.0" layoutY="533.0" mnemonicParsing="false" text="Back to dashborad"  fx:id="showDashboardAction"  />
    </children>
 </Pane>
