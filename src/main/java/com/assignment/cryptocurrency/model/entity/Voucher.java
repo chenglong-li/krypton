@@ -20,7 +20,7 @@ public class Voucher extends Model {
   private Date startDate;
   private Date endDate;
   private Integer userId;
-  private Integer limit;
+  private Integer limits;
   private String status;
 
   public String getCode() {
@@ -63,12 +63,12 @@ public class Voucher extends Model {
     this.userId = userId;
   }
 
-  public Integer getLimit() {
-    return limit;
+  public Integer getLimits() {
+    return limits;
   }
 
-  public void setLimit(Integer limit) {
-    this.limit = limit;
+  public void setLimits(Integer limit) {
+    this.limits = limit;
   }
 
   public String getStatus() {

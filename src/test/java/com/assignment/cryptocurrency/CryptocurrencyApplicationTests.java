@@ -2,6 +2,7 @@ package com.assignment.cryptocurrency;
 
 import com.assignment.cryptocurrency.model.entity.User;
 import com.assignment.cryptocurrency.service.LoginService;
+import java.util.Random;
 import javassist.NotFoundException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
