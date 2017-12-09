@@ -17,7 +17,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="91.0" layoutY="125.0" text="coinName">
+      <Label layoutX="91.0" layoutY="125.0" text="coin name">
          <font>
             <Font size="26.0" />
          </font>

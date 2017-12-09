@@ -5,22 +5,21 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane fx:controller="com.assignment.cryptocurrency.UIController.LoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="332.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="332.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="50.0" layoutY="64.0" text="username:">
+      <Label layoutX="50.0" layoutY="70.0" text="User name:">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="138.0" text="password:">
+      <Label layoutX="62.0" layoutY="145.0" text="Password:">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
       <TextField layoutX="227.0" layoutY="64.0" prefHeight="40.0" prefWidth="289.0" />
       <TextField layoutX="227.0" layoutY="140.0" prefHeight="40.0" prefWidth="289.0" />
-      <Button layoutX="457.0" layoutY="247.0" mnemonicParsing="false" text="Login" fx:id="loginAction"  />
-      <Button layoutX="332.0" layoutY="247.0" mnemonicParsing="false" text="register" fx:id="registerAction" />
+      <Button layoutX="457.0" layoutY="247.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="332.0" layoutY="247.0" mnemonicParsing="false" text="register" />
    </children>
 </Pane>

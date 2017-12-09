@@ -13,7 +13,7 @@ public class ProfileView extends Application
         Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
         
         stage.setTitle("Profile");
-        stage.setScene(new Scene(root, 600, 500));
+        stage.setScene(new Scene(root, 600, 700));
         stage.show();
     }
     
