@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 
-import java.awt.event.ActionEvent;
+//import java.event
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,11 +33,12 @@ public class LoginController implements Initializable
 		
 		registerAction.setOnAction(e ->
 		{
-			 showRegisterWindow(e);
+			((Node) e.getSource()).getScene().getWindow().hide();
+			 showRegisterWindow();
 		});
 	}
 	
-	void showRegisterWindow(ActionEvent e)
+	void showRegisterWindow()
 	{
 		Parent root = null;
 		try 
@@ -53,7 +54,6 @@ public class LoginController implements Initializable
         stage.setTitle("Register new user");
         stage.setScene(new Scene(root, 600, 575));
         stage.show();
-        ((Node) e.getSource()).getScene().getWindow().hide();
 	}
 }
 
