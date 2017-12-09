@@ -30,12 +30,11 @@ public class LoginController implements Initializable
 	{
 		loginAction.setOnAction(e ->
 		{
-			System.out.println("login");
+			
 		});
 		
 		registerAction.setOnAction(e ->
 		{
-			System.out.println("Her");
 			((Node) e.getSource()).getScene().getWindow().hide();
 			 showRegisterWindow();
 		});
@@ -53,10 +52,10 @@ public class LoginController implements Initializable
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		 Stage stage = new Stage();    
-        stage.setTitle("Register new user");
-        stage.setScene(new Scene(root, 600, 575));
-        stage.show();
+		 Stage stage = (Stage) registerAction.getScene().getWindow();
+	        stage.setTitle("Register new user");
+	        stage.setScene(new Scene(root, 600, 500));
+	        stage.show();
 	}
 }
 

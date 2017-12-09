@@ -6,7 +6,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 public class EmailUtil {
 
-  public static void sendSimpleMail(String to, String content) throws Exception {
+  public static void sendSimpleMail(String to, String content) {
     JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
     SimpleMailMessage message = new SimpleMailMessage();
     message.setFrom("longestar@sina.com");
@@ -18,7 +18,7 @@ public class EmailUtil {
     mailSender.setPort(25);
     mailSender.setProtocol("smtp");
     mailSender.setUsername("longestar@sina.com");
-    mailSender.setPassword("123456");
+    mailSender.setPassword("1234");
     mailSender.send(message);
   }
 
