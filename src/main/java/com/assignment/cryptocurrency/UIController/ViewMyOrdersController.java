@@ -11,51 +11,45 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import org.eclipse.persistence.internal.libraries.antlr.runtime.debug.DebugEventHub;
-
 import com.assignment.cryptocurrency.UIView.RegisterView;
 
 import javafx.fxml.*;
 
-public class LoginController implements Initializable
+public class ViewMyOrdersController implements Initializable
 {
 	
-	@FXML private Button registerAction;
-	@FXML private Button loginAction;
+	@FXML private Button showDashboardAction;
 	
 	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
-		loginAction.setOnAction(e ->
-		{
-			
-		});
+	
 		
-		registerAction.setOnAction(e ->
+		showDashboardAction.setOnAction(e ->
 		{
 			((Node) e.getSource()).getScene().getWindow().hide();
-			 showRegisterWindow();
+			showDashboard();
 		});
 	}
 	
-	void showRegisterWindow()
+	void showDashboard()
 	{
 		Parent root = null;
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("../UIView/register.fxml"));
+			root = FXMLLoader.load(getClass().getResource("../UIView/dashboard.fxml"));
 		} 
 		catch (IOException e1) 
 		{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		 Stage stage = (Stage) registerAction.getScene().getWindow();
-	        stage.setTitle("Register new user");
-	        stage.setScene(new Scene(root, 600, 500));
-	        stage.show();
+		 Stage stage = new Stage();    
+        stage.setTitle("Back to dashboard");
+        stage.setScene(new Scene(root, 600, 475));
+        stage.show();
 	}
 }
 
