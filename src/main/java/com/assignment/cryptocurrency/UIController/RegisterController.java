@@ -15,7 +15,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.assertj.core.api.UrlAssert;
 import org.hibernate.mapping.Component.StandardGenerationContextLocator;
 import org.json.JSONException;
 import org.json.JSONObject;
