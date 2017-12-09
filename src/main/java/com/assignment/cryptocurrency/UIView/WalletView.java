@@ -5,21 +5,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-public class ProfileView extends Application 
+public class WalletView extends Application 
 {
 
 	public void start(Stage stage) throws Exception 
 	{
-        Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("wallet.fxml"));
         
-        stage.setTitle("Profile");
-        stage.setScene(new Scene(root, 600, 700));
+        stage.setTitle("Wallet");
+        stage.setScene(new Scene(root, 600, 475));
         stage.show();
     }
     
     public static void main(String[] args) 
     {
-        Application.launch(ProfileView.class, args);
+        Application.launch(WalletView.class, args);
     }
 
 }
