@@ -15,7 +15,6 @@ public class LoginView extends Application
         stage.setTitle("FXML Welcome");
         stage.setScene(new Scene(root, 600, 275));
         stage.show();
-        
     }
     
     public static void main(String[] args) 

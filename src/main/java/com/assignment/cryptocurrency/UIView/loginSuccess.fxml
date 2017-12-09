@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="com.assignment.cryptocurrency.UIController.LoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="332.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="50.0" layoutY="64.0" text="User created successfully! Please login.">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button layoutX="457.0" layoutY="247.0" mnemonicParsing="false" text="Login" fx:id="loginAction"  />
+   </children>
+</Pane>
