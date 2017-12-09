@@ -104,8 +104,8 @@ public class RegisterController implements Initializable
 				System.out.println("***************catch2");
 			}
 		}
-	};
-}
+	}
+
 	
 	//-----------------------------------------------------------------------------------------
 	void showLoginWindow()
