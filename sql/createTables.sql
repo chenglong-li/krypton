@@ -24,12 +24,14 @@ CREATE TABLE user
 DROP TABLE IF EXISTS wallet;
 CREATE TABLE wallet 
 (
-  id 			INT NOT NULL AUTO_INCREMENT,
-  coin_name VARCHAR(255) NOT NULL,
+  id 		INT NOT NULL AUTO_INCREMENT,
+  coin_id	INT NOT NULL,
   address 	VARCHAR(255) NOT NULL,
   user_id 	INT NOT NULL,
   amount 	FLOAT NOT NULL,
   PRIMARY KEY(id),
+  FOREIGN KEY (coin_id)
+  REFERENCES coin(id),
   FOREIGN KEY (user_id)
   REFERENCES user(id)
 ) 
