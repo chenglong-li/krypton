@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.eclipse.persistence.internal.libraries.antlr.runtime.debug.DebugEventHub;
+
 import com.assignment.cryptocurrency.UIView.RegisterView;
 
 import javafx.fxml.*;
@@ -33,6 +35,7 @@ public class LoginController implements Initializable
 		
 		registerAction.setOnAction(e ->
 		{
+			System.out.println("Her");
 			((Node) e.getSource()).getScene().getWindow().hide();
 			 showRegisterWindow();
 		});

@@ -7,17 +7,17 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="89.0" layoutY="180.0" text="username:">
+      <Label layoutX="86.0" layoutY="180.0" text="User name:">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="48.0" layoutY="227.0" text="emai address:">
+      <Label layoutX="143.0" layoutY="228.0" text="Email :">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="90.0" layoutY="274.0" text="telephone:">
+      <Label layoutX="87.0" layoutY="274.0" text="Telephone:">
          <font>
             <Font size="26.0" />
          </font>
@@ -48,12 +48,12 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="91.0" layoutY="99.0" text="firstName:">
+      <Label layoutX="91.0" layoutY="99.0" text="First name:">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="95.0" layoutY="139.0" text="lastName:">
+      <Label layoutX="92.0" layoutY="139.0" text="Last name:">
          <font>
             <Font size="26.0" />
          </font>
@@ -68,12 +68,12 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="134.0" layoutY="319.0" text="status:">
+      <Label layoutX="137.0" layoutY="319.0" text="Status:">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="69.0" layoutY="361.0" text="createTime:">
+      <Label layoutX="69.0" layoutY="361.0" text="Create Time:">
          <font>
             <Font size="26.0" />
          </font>
@@ -88,7 +88,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="64.0" layoutY="403.0" text="updateTime:">
+      <Label layoutX="64.0" layoutY="403.0" text="Update Time:">
          <font>
             <Font size="26.0" />
          </font>

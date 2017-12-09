@@ -7,12 +7,12 @@
 
 <Pane fx:controller="com.assignment.cryptocurrency.UIController.RegisterController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="50.0" layoutY="64.0" text="username:">
+      <Label layoutX="50.0" layoutY="64.0" text="User name:">
          <font>
             <Font size="26.0" />
          </font>
       </Label>  
-      <Label layoutX="51.0" layoutY="139.0" text="password:">
+      <Label layoutX="51.0" layoutY="139.0" text="Password:">
          <font>
             <Font size="26.0" />
          </font>
@@ -21,18 +21,18 @@
       <TextField layoutX="222.0" layoutY="134.0" prefHeight="40.0" prefWidth="289.0" fx:id="password"/>
       <Button layoutX="446.0" layoutY="453.0" mnemonicParsing="false" text="register" fx:id="registerNewUserAction" />
       <TextField layoutX="223.0" layoutY="203.0" prefHeight="40.0" prefWidth="289.0" fx:id="passwordConfirm"/>
-      <Label layoutX="48.0" layoutY="207.0" text="comfirm pwd:">
+      <Label layoutX="48.0" layoutY="207.0" text="Comfirm pwd:">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="47.0" layoutY="273.0" text="email address:" >
+      <Label layoutX="47.0" layoutY="273.0" text="Email:" >
          <font>
             <Font size="26.0" />
          </font>
       </Label>
       <TextField layoutX="223.0" layoutY="275.0" prefHeight="40.0" prefWidth="289.0" fx:id="email"/>
-      <Label layoutX="46.0" layoutY="336.0" text="telephone:">
+      <Label layoutX="46.0" layoutY="336.0" text="Telephone:">
          <font>
             <Font size="26.0" />
          </font>
