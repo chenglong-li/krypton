@@ -44,10 +44,10 @@ public class RegisterController implements Initializable
 			try 
 			{
 				String randString=String.valueOf(new Random().nextInt(8000));
-				username.setText("sljfasfas"+randString);
+				username.setText("username"+randString);
 				password.setText("password"+randString);
 				email.setText("a"+randString+"@b"+randString+".com");
-				tel.setText("2424222424"+randString);
+				tel.setText("555-"+randString);
 				JSONObject json = new JSONObject();
 				json.put("username", username.getText());
 				json.put("password", password.getText());
@@ -65,6 +65,7 @@ public class RegisterController implements Initializable
 				    request.setEntity(params);
 				    HttpResponse  response = httpClient.execute(request);
 				    
+				    
 				    if(response.getStatusLine().getStatusCode()==200)
 				    {
 				    	System.out.println("***************************YESSSS***");
@@ -73,6 +74,8 @@ public class RegisterController implements Initializable
 				    }
 				    else
 				    {
+				    	System.out.println("*********************NO!!!***");
+				    	System.out.println(response.getStatusLine().getStatusCode());
 				    	System.out.println(response.getStatusLine().getStatusCode());
 				    }
 				} 
