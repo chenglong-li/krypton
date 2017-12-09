@@ -22,33 +22,32 @@ CREATE TABLE user
 );
 
 -------------------------------------------------
-CREATE TABLE coin
-(
-    name 			INT NOT NULL AUTO_INCREMENT,
-    price 		VARCHAR(255),
-    type 		VARCHAR(255),
-   	userName 	VARCHAR(50),
-    password	VARCHAR(255),
-    email 		VARCHAR(255),	
-    mobile 		VARCHAR(255),
-    status 		VARCHAR(255),
-    PRIMARY KEY(id)
-);
-
-
 CREATE TABLE wallet 
 (
-  address varchar(255) NOT NULL,
-  user_id int(11) NOT NULL,
-  amount float DEFAULT NULL,
+  coin_name VARCHAR(255) NOT NULL,
+  address 	VARCHAR(255) NOT NULL,
+  user_id 	INT NOT NULL,
+  amount 	FLOAT NOT NULL,
+  PRIMARY KEY(address),
   FOREIGN KEY (user_id)
   REFERENCES user(id)
-  
 ) 
+-------------------------------------------------
 
+CREATE TABLE offer 
+(
+  coin_name VARCHAR(255) NOT NULL,
+  amount	FLOAT NOT NULL,
+  price		FLOAT NOT NULL,
+  source_user_id	INT NOT NULL,
+  dest_user_id		INT NOT NULL,
+  FOREIGN KEY (source_user_id)
+  REFERENCES user(id),
+  FOREIGN KEY (dest_user_id)
+  REFERENCES user(id)
 
-
-
+) 
+-------------------------------------------------
 
 
 
