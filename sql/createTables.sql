@@ -34,7 +34,7 @@ CREATE TABLE wallet
   REFERENCES coin(id),
   FOREIGN KEY (user_id)
   REFERENCES user(id)
-) 
+);
 -------------------------------------------------
 DROP TABLE IF EXISTS offer;
 CREATE TABLE offer 
@@ -49,7 +49,7 @@ CREATE TABLE offer
   FOREIGN KEY (dest_user_id)
   REFERENCES user(id)
 
-) 
+); 
 -------------------------------------------------
 DROP TABLE IF EXISTS coin;
 CREATE TABLE coin 
@@ -57,7 +57,7 @@ CREATE TABLE coin
 	id 		INT NOT NULL AUTO_INCREMENT,
 	name	VARCHAR(255) NOT NULL,
 	PRIMARY KEY(id)
-)
+);
 -------------------------------------------------
 DROP TABLE IF EXISTS orders;
 CREATE TABLE orders
@@ -72,7 +72,7 @@ CREATE TABLE orders
   REFERENCES user(id),
   FOREIGN KEY (source_coin_id)
   REFERENCES coin(id)
-) 
+); 
 -------------------------------------------------
 
 
