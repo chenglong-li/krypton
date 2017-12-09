@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="91.0" layoutY="175.0" text="username:">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="216.0" text="emai address:">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="90.0" layoutY="261.0" text="telephone:">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="229.0" layoutY="75.0" text="Profile">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="175.0" text="lichenglong">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="216.0" text="serena@yahoo.co.jp">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="261.0" text="0904302993">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button layoutX="391.0" layoutY="389.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="93.0" text="invite user" />
+   </children>
+</Pane>

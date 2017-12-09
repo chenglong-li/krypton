@@ -25,14 +25,14 @@ public abstract class AbstractVoucherService {
   protected Voucher valid(String code) throws NotFoundException {
     Voucher existed = voucherRepository.findByCode(code);
     if (existed == null) {
-      throw new NotFoundException("The code is not existed!");
+      throw new NotFoundException("The code does not exist.");
     }
     Date now = new Date();
-    if (existed.getStartDate().after(now)
+   /*if (existed.getStartDate().after(now)
         || existed.getEndDate().before(now)
         || VoucherStatus.INVALID.name().equals(existed.getStatus())) {
       throw new ServiceException("The voucher is invalid!");
-    }
+    }*/
     return existed;
   }
 }

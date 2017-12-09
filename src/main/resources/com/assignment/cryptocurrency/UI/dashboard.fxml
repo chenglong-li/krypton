@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="229.0" layoutY="52.0" prefHeight="286.0" prefWidth="356.0">
+         <children>
+            <Label layoutX="44.0" layoutY="30.0" text="type" />
+            <Label layoutX="95.0" layoutY="30.0" text="price" />
+            <Label layoutX="156.0" layoutY="30.0" text="volumn" />
+            <Label layoutX="238.0" layoutY="31.0" text="date" />
+            <Label layoutX="237.0" layoutY="68.0" text="date" />
+            <Label layoutX="155.0" layoutY="67.0" text="volumn" />
+            <Label layoutX="94.0" layoutY="67.0" text="price" />
+            <Label layoutX="43.0" layoutY="67.0" text="type" />
+            <Label layoutX="43.0" layoutY="106.0" text="type" />
+            <Label layoutX="94.0" layoutY="106.0" text="price" />
+            <Label layoutX="155.0" layoutY="106.0" text="volumn" />
+            <Label layoutX="237.0" layoutY="107.0" text="date" />
+            <Label layoutX="238.0" layoutY="150.0" text="date" />
+            <Label layoutX="156.0" layoutY="149.0" text="volumn" />
+            <Label layoutX="95.0" layoutY="149.0" text="price" />
+            <Label layoutX="44.0" layoutY="149.0" text="type" />
+            <Label layoutX="46.0" layoutY="189.0" text="type" />
+            <Label layoutX="97.0" layoutY="189.0" text="price" />
+            <Label layoutX="158.0" layoutY="189.0" text="volumn" />
+            <Label layoutX="240.0" layoutY="190.0" text="date" />
+            <Label layoutX="236.0" layoutY="226.0" text="date" />
+            <Label layoutX="154.0" layoutY="225.0" text="volumn" />
+            <Label layoutX="93.0" layoutY="225.0" text="price" />
+            <Label layoutX="42.0" layoutY="225.0" text="type" />
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="55.0" prefHeight="518.0" prefWidth="207.0">
+         <children>
+            <Button layoutX="40.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view all offers" />
+            <Button layoutX="40.0" layoutY="55.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="put new offer" />
+            <Button layoutX="40.0" layoutY="101.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view my offers" />
+            <Button layoutX="38.0" layoutY="235.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="exchange" />
+            <Button layoutX="38.0" layoutY="148.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="accept offer" />
+            <Button layoutX="39.0" layoutY="192.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="transfer" />
+            <Button layoutX="38.0" layoutY="321.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="make order" />
+            <Button layoutX="37.0" layoutY="277.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view all orders" />
+            <Button layoutX="37.0" layoutY="364.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view my orders" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
