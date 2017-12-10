@@ -1,4 +1,5 @@
 package com.assignment.cryptocurrency.UIController;
+
 import javafx.scene.text.*;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -6,10 +7,18 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 
+import java.io.BufferedReader;
 //import java.event
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 
 import com.assignment.cryptocurrency.UIView.RegisterView;
 import com.assignment.cryptocurrency.util.Storage;
@@ -34,6 +43,9 @@ public class DashboardController implements Initializable
 	@FXML private Button showWalletAction;
 	
 	@FXML private Button signOutAction;
+	
+	@FXML private Label myInviteCode;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
@@ -307,8 +319,46 @@ public class DashboardController implements Initializable
         stage.setScene(new Scene(root, 600, 675));
         stage.show();
 	}
+	
+	@FXML
+	public String showMyInviteCode() {
+		Storage storInstance = Storage.getInstance();
+		String userId = (String)storInstance.get("userid");
+		
+		CloseableHttpClient httpClient=null;
+		try 
+		{
+			httpClient = HttpClientBuilder.create().build();
+
+			HttpGet request = new HttpGet("http://localhost:8080/api/Users/Login?username=" + userId+"&password=");
+		    request.addHeader("content-type", "application/json");
+		    HttpResponse  response = httpClient.execute(request);
+		    
+		    if(response.getStatusLine().getStatusCode()==200) {
+		    	BufferedReader reader = null;
+				try  {
+					reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
+					StringBuilder builder = new StringBuilder();
+					for (String line = null; (line = reader.readLine()) != null;)  {
+					    builder.append(line).append("\n");
+					}
+					return builder.toString();
+				}
+				catch (Exception ex)  { } 
+				finally  { }
+		    	//hideCurrentWindow();
+			    //showLoginWindow();
+		    }
+		    else {  }
+		} 
+		catch (Exception ex)  { } 
+		finally  {
+			try  {
+				httpClient.close();
+			} 
+			catch (IOException e1)  { }
+		}
+		return "";
+	}
+
 }
-
-
-
-
