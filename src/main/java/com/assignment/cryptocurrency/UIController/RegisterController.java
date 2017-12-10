@@ -27,6 +27,8 @@ public class RegisterController implements Initializable
 	//@FXML private TextField username;
 	//@FXML private TextField username;
 	
+	@FXML private TextField tfInvitorCode;
+	
 	//-----------------------------------------------------------------------------------------
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
@@ -57,9 +59,9 @@ public class RegisterController implements Initializable
 			json.put("first_name", username.getText());
 			json.put("email", email.getText());
 			json.put("mobile", tel.getText());
-			json.put("code", "1234");
+			json.put("inviteCode", tfInvitorCode.getText());
 			httpClient = HttpClientBuilder.create().build();
-		    HttpPost request = new HttpPost("http://localhost:8080/api/Users?inviteCode=1234");
+		    HttpPost request = new HttpPost("http://localhost:8080/api/Users");
 		    StringEntity params = new StringEntity(json.toString());
 		    request.addHeader("content-type", "application/json");
 		    request.setEntity(params);
