@@ -3,6 +3,7 @@ package com.assignment.cryptocurrency.model.entity;
 import com.assignment.cryptocurrency.general.Model;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +19,8 @@ public class Wallet extends Model {
 
   private Integer coinId;
   private String address;
-  private Double amount;
+  private BigDecimal amount;
+  private Integer userId;
 
   @Basic
   @Column(name = "coin_id")
@@ -42,13 +44,19 @@ public class Wallet extends Model {
 
   @Basic
   @Column(name = "amount")
-  public Double getAmount() {
+  public BigDecimal getAmount() {
     return amount;
   }
 
-  public void setAmount(Double amount) {
+  public void setAmount(BigDecimal amount) {
     this.amount = amount;
   }
 
+  public Integer getUserId() {
+    return userId;
+  }
 
+  public void setUserId(Integer userId) {
+    this.userId = userId;
+  }
 }
