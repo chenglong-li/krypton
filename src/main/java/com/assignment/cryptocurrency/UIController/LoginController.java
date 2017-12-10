@@ -44,15 +44,16 @@ public class LoginController implements Initializable
 		loginAction.setOnAction(e ->
 		{
 			StringBuilder builder= getUserInfo();
-			System.out.println(builder.toString());
 			if (builder!=null)
 			{
 				JSONObject jsonObj = new JSONObject(builder.toString());
+				int id=jsonObj.getInt("id");
 				Object firstName=jsonObj.get("first_name");
 				Object lastName=jsonObj.get("last_name");
 				Object mobile=jsonObj.get("mobile");
 				Object status=jsonObj.get("status");
 				Storage storage = Storage.getInstance();
+				storage.save("userId",Integer.toString(id));
 				if (firstName!=null)
 					storage.save("firstName", firstName.toString());
 				if (lastName!=null)
@@ -62,7 +63,7 @@ public class LoginController implements Initializable
 				if (status!=null)
 					storage.save("status", status.toString());
 			}
-			
+			showDashboardWindow();
 		});
 		registerAction.setOnAction(e ->
 		{
@@ -132,38 +133,38 @@ public class LoginController implements Initializable
 	
 	//-----------------------------------------------------------------------------------------
 	void showWalletWindow()
+	{
+		Parent root = null;
+		try 
 		{
-			Parent root = null;
-			try 
-			{
-				root = FXMLLoader.load(getClass().getResource("../UIView/wallet.fxml"));
-			} 
-			catch (IOException e1) 
-			{
-				e1.printStackTrace();
-			}
-			 Stage stage = (Stage) username.getScene().getWindow();
-	        stage.setTitle("Wallet");
-	        stage.setScene(new Scene(root, 800, 500));
-	        stage.show();
-		};
-		//-----------------------------------------------------------------------------------------
-		void showDashboardWindow()
-			{
-				Parent root = null;
-				try 
-				{
-					root = FXMLLoader.load(getClass().getResource("../UIView/dashboard.fxml"));
-				} 
-				catch (IOException e1) 
-				{
-					e1.printStackTrace();
-				}
-				 Stage stage = (Stage) username.getScene().getWindow();
-		        stage.setTitle("My Dashboard");
-		        stage.setScene(new Scene(root, 800, 500));
-		        stage.show();
-			};
+			root = FXMLLoader.load(getClass().getResource("../UIView/wallet.fxml"));
+		} 
+		catch (IOException e1) 
+		{
+			e1.printStackTrace();
+		}
+		 Stage stage = (Stage) username.getScene().getWindow();
+        stage.setTitle("Wallet");
+        stage.setScene(new Scene(root, 800, 500));
+        stage.show();
+	};
+	//-----------------------------------------------------------------------------------------
+	void showDashboardWindow()
+	{
+		Parent root = null;
+		try 
+		{
+			root = FXMLLoader.load(getClass().getResource("../UIView/dashboard.fxml"));
+		} 
+		catch (IOException e1) 
+		{
+			e1.printStackTrace();
+		}
+		 Stage stage = (Stage) username.getScene().getWindow();
+        stage.setTitle("My Dashboard");
+        stage.setScene(new Scene(root, 800, 500));
+        stage.show();
+	};
 	//----------------------------------------------------------------------
 	void showRegisterWindow()
 	{
