@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:controller="com.assignment.cryptocurrency.UIController.WalletController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:controller="com.assignment.cryptocurrency.UIController.WalletController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" stylesheets="@MainStyle.css" prefWidth="628.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
    <Button layoutX="529.0" layoutY="360.0" mnemonicParsing="false" text="Back to dashborad"  fx:id="showDashboardAction"  />
    
