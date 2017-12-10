@@ -5,13 +5,25 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:controller="com.assignment.cryptocurrency.UIController.ExchangeController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+<Pane fx:controller="com.assignment.cryptocurrency.UIController.ExchangeController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8" stylesheets="@MainStyle.css"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.cryptocurrency.UIController.ExchangeController">
    <children>
-      <Label layoutX="217.0" layoutY="54.0" text="Exchange">
+      <Label layoutX="229.0" layoutY="34.0" text="Exchange">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-       <Button layoutX="229.0" layoutY="533.0" mnemonicParsing="false" text="Back to dashborad"  fx:id="showDashboardAction"  />
+       <Button fx:id="showDashboardAction" layoutX="416.0" layoutY="464.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="144.0" text="Back to dashborad"  fx:id="showDashboardAction" />
+      <Label layoutX="134.0" layoutY="143.0" text="Origin type:" />
+      <TextField layoutX="231.0" layoutY="139.0" prefHeight="27.0" prefWidth="242.0" />
+      <TextField layoutX="231.0" layoutY="184.0" prefHeight="27.0" prefWidth="242.0" />
+      <Label layoutX="134.0" layoutY="188.0" text="Origin price:" />
+      <Label layoutX="134.0" layoutY="233.0" text="Origin amount:" />
+      <TextField layoutX="231.0" layoutY="229.0" prefHeight="27.0" prefWidth="242.0" />
+      <TextField layoutX="231.0" layoutY="276.0" prefHeight="27.0" prefWidth="242.0" />
+      <Label layoutX="134.0" layoutY="280.0" text="Dest type:" />
+      <Label layoutX="136.0" layoutY="329.0" text="Dest price:" />
+      <TextField layoutX="233.0" layoutY="325.0" prefHeight="27.0" prefWidth="242.0" />
+      <Button layoutX="240.0" layoutY="463.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="144.0" text="Submit" />
    </children>
 </Pane>
