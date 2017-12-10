@@ -7,19 +7,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 public class WalletView extends Application 
 {
-
+	//----------------------------------------------------------------------
 	public void start(Stage stage) throws Exception 
 	{
         Parent root = FXMLLoader.load(getClass().getResource("wallet.fxml"));
-        
+       // Scene scene = new Scene(root);        
         stage.setTitle("Wallet");
-        stage.setScene(new Scene(root, 600, 475));
+        stage.setScene(new Scene(root, 800, 475));
         stage.show();
     }
-    
+	//----------------------------------------------------------------------
     public static void main(String[] args) 
     {
         Application.launch(WalletView.class, args);
     }
-
+	//----------------------------------------------------------------------
 }

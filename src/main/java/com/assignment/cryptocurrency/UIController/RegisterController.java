@@ -45,7 +45,6 @@ public class RegisterController implements Initializable
 		CloseableHttpClient httpClient=null;
 		try 
 		{
-			System.out.println("***************begin!");
 			String randString=String.valueOf(new Random().nextInt(8000));
 			username.setText("username"+randString);
 			password.setText("password"+randString);

@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 public class LoginView extends Application 
 {
-
+//----------------------------------------------------------------------
 	public void start(Stage stage) throws Exception 
 	{
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
