@@ -33,10 +33,8 @@ import javafx.fxml.*;
 
 public class LoginController implements Initializable
 {
-	
 	@FXML private Button registerAction;
 	@FXML private Button loginAction;
-	
 	@FXML private TextField username;
 	@FXML private TextField password;
 	//----------------------------------------------------------------------
@@ -61,14 +59,12 @@ public class LoginController implements Initializable
 			}
 			
 		});
-				
 		registerAction.setOnAction(e ->
 		{
 			((Node) e.getSource()).getScene().getWindow().hide();
 			 showRegisterWindow();
 		});
 	}
-	
 	//----------------------------------------------------------------------
 	StringBuilder  getUserInfo()
 	{

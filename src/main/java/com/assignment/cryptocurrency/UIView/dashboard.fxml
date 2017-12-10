@@ -25,7 +25,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="520.0" layoutY="192" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="my wallet" fx:id="showWalletAction" />
+      		<Button layoutX="520.0" layoutY="192" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="my wallet" fx:id="showWalletAction" />
             <Button layoutX="40.0" layoutY="192" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view all offers" fx:id="showViewAllOffersAction" />
             <Button layoutX="40.0" layoutY="235" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="put new offer" fx:id="showPutNewOfferAction" />
             <Button layoutX="40.0" layoutY="277.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view my offers" fx:id="showViewMyOffersAction" />
@@ -35,6 +35,7 @@
             <Button layoutX="280.0" layoutY="277" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="make order" fx:id="showMakeOrderAction" />
             <Button layoutX="280.0" layoutY="321" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view all orders" fx:id="showViewAllOrdersAction" />
             <Button layoutX="280.0" layoutY="364" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view my orders" fx:id="showViewMyOrdersAction" />
+            <Button layoutX="520.0" layoutY="235" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Sign out" fx:id="signOutAction" />
          </children>
       </Pane>
    </children>

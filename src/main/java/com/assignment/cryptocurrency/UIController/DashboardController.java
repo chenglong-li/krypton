@@ -33,7 +33,7 @@ public class DashboardController implements Initializable
 	@FXML private Button showViewMyOrdersAction;
 	@FXML private Button showWalletAction;
 	
-
+	@FXML private Button signOutAction;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
@@ -43,6 +43,12 @@ public class DashboardController implements Initializable
 			firstNameLbl.setText(firstName.toString());
 		if (lastName!=null)
 			lastNameLbl.setText(lastName.toString());
+		
+		signOutAction.setOnAction(e ->
+		{
+			((Node) e.getSource()).getScene().getWindow().hide();
+			showLoginWindow();
+		});
 		
 		showWalletAction.setOnAction(e ->
 		{
@@ -105,6 +111,24 @@ public class DashboardController implements Initializable
 		});
 	}
 	
+	//-----------------------------------------------------------------------------------------
+	void showLoginWindow()
+	{
+		Parent root = null;
+		try 
+		{
+			root = FXMLLoader.load(getClass().getResource("../UIView/login.fxml"));
+		} 
+		catch (IOException e1) 
+		{
+			e1.printStackTrace();
+		}
+		 Stage stage = (Stage) signOutAction.getScene().getWindow();
+        stage.setTitle("Login");
+        stage.setScene(new Scene(root, 600, 500));
+        stage.show();
+	};
+	//-----------------------------------------------------------------------------------------	
 	void showWalletWindow()
 	{
 		Parent root = null;
