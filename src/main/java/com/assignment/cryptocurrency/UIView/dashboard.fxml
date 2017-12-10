@@ -38,7 +38,7 @@
             <Button fx:id="signOutAction" layoutX="520.0" layoutY="235" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Sign out" />
          </children>
       </Pane>
-      <Button fx:id="showExchangeAction1" layoutX="54.0" layoutY="573.0" mnemonicParsing="false" onAction="#showMyInviteCode" prefHeight="31.0" prefWidth="128.0" text="My Invite Code" />
-      <Label fx:id="myInviteCode" layoutX="207.0" layoutY="580.0" text="Label" />
+      <Button fx:id="showExchangeAction1" layoutX="54.0" layoutY="193.0" mnemonicParsing="false" onAction="#showMyInviteCode" prefHeight="31.0" prefWidth="128.0" text="My Invite Code" />
+      <Label fx:id="myInviteCode" layoutX="211.0" layoutY="193.0" text="" />
    </children>
 </Pane>

@@ -32,6 +32,10 @@ public class DashboardController implements Initializable {
   @FXML
   private Label lastNameLbl;
 
+  
+  @FXML
+  private Button showExchangeAction1;
+  
   @FXML
   private Button showViewAllOffersAction;
   @FXML
@@ -70,6 +74,18 @@ public class DashboardController implements Initializable {
       lastNameLbl.setText(lastName.toString());
     }
 
+    showExchangeAction1.setOnAction(e ->
+    {
+      //((Node) e.getSource()).getScene().getWindow().hide();
+    	try {
+			myInviteCode.setText(showMyInviteCode());
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    });
+    
+    
     signOutAction.setOnAction(e ->
     {
       ((Node) e.getSource()).getScene().getWindow().hide();
