@@ -44,18 +44,23 @@ public class LoginController implements Initializable
 		loginAction.setOnAction(e ->
 		{
 			StringBuilder builder= getUserInfo();
+			System.out.println(builder.toString());
 			if (builder!=null)
 			{
 				JSONObject jsonObj = new JSONObject(builder.toString());
+				Object firstName=jsonObj.get("first_name");
+				Object lastName=jsonObj.get("last_name");
+				Object mobile=jsonObj.get("mobile");
+				Object status=jsonObj.get("status");
 				Storage storage = Storage.getInstance();
-				storage.save("userId", jsonObj.getInt("id"));
-				
-				storage.save("firstName", jsonObj.getString("first_name"));
-				storage.save("lastName", jsonObj.getString("last_name"));
-				storage.save("mobile", jsonObj.getString("mobile"));
-				storage.save("status", jsonObj.getString("status"));
-				((Node) e.getSource()).getScene().getWindow().hide();
-				showDashboardWindow();
+				if (firstName!=null)
+					storage.save("firstName", firstName.toString());
+				if (lastName!=null)
+					storage.save("lastName", lastName.toString());
+				if (mobile!=null)
+					storage.save("mobile", mobile.toString());
+				if (status!=null)
+					storage.save("status", status.toString());
 			}
 			
 		});
@@ -72,8 +77,11 @@ public class LoginController implements Initializable
 		try 
 		{
 			httpClient = HttpClientBuilder.create().build();
-			username.setText("username7539");
-			password.setText("password7539");
+			//username.setText("username7539");
+			//password.setText("password7539");
+			String getQuery="http://localhost:8080/api/Users/Login?username=" + username.getText()+"&password="+password.getText();
+			System.out.println("*******************************HEREEE");
+			System.out.println(getQuery);
 			HttpGet request = new HttpGet("http://localhost:8080/api/Users/Login?username=" + username.getText()+"&password="+password.getText());
 		    request.addHeader("content-type", "application/json");
 		    HttpResponse  response = httpClient.execute(request);
