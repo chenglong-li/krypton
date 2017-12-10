@@ -48,7 +48,7 @@ public class ViewAllOffersController implements Initializable
 		}
 		 Stage stage = new Stage();    
         stage.setTitle("Back to dashboard");
-        stage.setScene(new Scene(root, 600, 475));
+        stage.setScene(new Scene(root, 800, 475));
         stage.show();
 	}
 }

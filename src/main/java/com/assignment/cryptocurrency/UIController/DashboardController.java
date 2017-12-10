@@ -12,12 +12,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.assignment.cryptocurrency.UIView.RegisterView;
+import com.assignment.cryptocurrency.util.Storage;
 
 import javafx.fxml.*;
 
 public class DashboardController implements Initializable
 {
 
+	@FXML private Label firstNameLbl;
+	@FXML private Label lastNameLbl;
+	
 	@FXML private Button showViewAllOffersAction;
 	@FXML private Button showPutNewOfferAction;
 	@FXML private Button showViewMyOffersAction;
@@ -27,12 +31,25 @@ public class DashboardController implements Initializable
 	@FXML private Button showMakeOrderAction;
 	@FXML private Button showViewAllOrdersAction;
 	@FXML private Button showViewMyOrdersAction;
-	
+	@FXML private Button showWalletAction;
 	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
+		Object firstName=Storage.getInstance().get("firstName");
+		Object lastName=Storage.getInstance().get("lastName");
+		if (firstName!=null)
+			firstNameLbl.setText(firstName.toString());
+		if (lastName!=null)
+			lastNameLbl.setText(lastName.toString());
+		
+		showWalletAction.setOnAction(e ->
+		{
+			((Node) e.getSource()).getScene().getWindow().hide();
+			showWalletWindow();
+		});
+		
 		showViewAllOffersAction.setOnAction(e ->
 		{
 			((Node) e.getSource()).getScene().getWindow().hide();
@@ -87,6 +104,23 @@ public class DashboardController implements Initializable
 			showViewAllOrders();
 		});
 	}
+	
+	void showWalletWindow()
+	{
+		Parent root = null;
+		try 
+		{
+			root = FXMLLoader.load(getClass().getResource("../UIView/wallet.fxml"));
+		} 
+		catch (IOException e1) 
+		{
+			e1.printStackTrace();
+		}
+		 Stage stage = (Stage) showWalletAction.getScene().getWindow();
+        stage.setTitle("Wallet");
+        stage.setScene(new Scene(root, 800, 500));
+        stage.show();
+	};
 	
 	void showExchange()
 	{

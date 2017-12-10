@@ -17,8 +17,8 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <TextField layoutX="227.0" layoutY="64.0" prefHeight="40.0" prefWidth="289.0" />
-      <TextField layoutX="227.0" layoutY="140.0" prefHeight="40.0" prefWidth="289.0" />
+      <TextField layoutX="227.0" layoutY="64.0" prefHeight="40.0" prefWidth="289.0" fx:id="username" />
+      <TextField layoutX="227.0" layoutY="140.0" prefHeight="40.0" prefWidth="289.0" fx:id="password" />
       <Button layoutX="457.0" layoutY="247.0" mnemonicParsing="false" text="Login" fx:id="loginAction" />
       <Button layoutX="332.0" layoutY="247.0" mnemonicParsing="false" text="Register" fx:id="registerAction" />
    </children>
