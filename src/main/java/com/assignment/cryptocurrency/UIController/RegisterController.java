@@ -20,6 +20,7 @@ public class RegisterController implements Initializable
 {
 	//-----------------------------------------------------------------------------------------
 	@FXML private Button registerNewUserAction;
+	@FXML private Button loginAction;
 	@FXML private TextField username;
 	@FXML private TextField password;
 	@FXML private TextField email;
@@ -27,7 +28,7 @@ public class RegisterController implements Initializable
 	//@FXML private TextField username;
 	//@FXML private TextField username;
 	
-	@FXML private TextField tfInvitorCode;
+	@FXML private TextField tfInviterCode;
 	
 	//-----------------------------------------------------------------------------------------
 	@Override
@@ -38,6 +39,13 @@ public class RegisterController implements Initializable
 			sendRegisterFormDataToServer(e);
 		    hideCurrentWindow();
 		    //showLoginWindow();
+		});
+		
+		loginAction.setOnAction(e ->
+		{
+			//sendRegisterFormDataToServer(e);
+		    //hideCurrentWindow();
+		    showLoginWindow();
 		});
 		    
 	}
@@ -59,7 +67,9 @@ public class RegisterController implements Initializable
 			json.put("first_name", username.getText());
 			json.put("email", email.getText());
 			json.put("mobile", tel.getText());
-			json.put("inviteCode", tfInvitorCode.getText());
+			String inviteCode=tfInviterCode.getText();
+			if (inviteCode!=null)
+				json.put("inviteCode", inviteCode);
 			httpClient = HttpClientBuilder.create().build();
 		    HttpPost request = new HttpPost("http://localhost:8080/api/Users");
 		    StringEntity params = new StringEntity(json.toString());
@@ -83,7 +93,8 @@ public class RegisterController implements Initializable
 		{
 			try 
 			{
-				httpClient.close();
+				if (httpClient!=null)
+					httpClient.close();
 			} 
 			catch (IOException e1) 
 			{

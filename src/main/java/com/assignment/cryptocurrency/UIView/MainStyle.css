@@ -1,7 +1,7 @@
 /* ButtonView */
 
 .root {
-     -fx-background-image: url("background.jpg");
+      -fx-background-image: url("background.jpg");
 }
 
 #welcome-text {
