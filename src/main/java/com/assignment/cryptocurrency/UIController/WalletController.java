@@ -6,21 +6,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 //import net.minidev.json.JSONArray;
 import javafx.scene.control.*;
-
 //import java.awt.Button;
 import java.io.BufferedReader;
 //import java.event
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.Timer;
-import java.util.TimerTask;
-
-import javax.json.JsonObject;
-import javax.validation.constraints.Null;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -28,7 +21,6 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.assignment.cryptocurrency.UIView.RegisterView;
 import com.assignment.cryptocurrency.util.Storage;
 
 import javafx.fxml.*;
@@ -71,14 +63,14 @@ public class WalletController  implements Initializable
 		});
 		
 		StringBuilder builder= getUserWalletInfo();
+		//System.out.println("******BEFORE");
+		//System.out.println(builder.toString());
 		if (builder!=null)
 		{
 			fillLabelsFromStringBuilder(builder);
 			
 		}
-		
-		
-		
+
 		Object firstName=Storage.getInstance().get("firstName");
 		Object lastName=Storage.getInstance().get("lastName");
 		if (firstName!=null)
@@ -137,7 +129,7 @@ public class WalletController  implements Initializable
 		CloseableHttpClient httpClient=null;
 		try 
 		{
-			System.out.println("_"+name);
+			//System.out.println("_"+name);
 			httpClient = HttpClientBuilder.create().build();
 			HttpGet request = new HttpGet("https://api.coinmarketcap.com/v1/ticker/"+name);
 		    request.addHeader("content-type", "application/json");
@@ -214,10 +206,10 @@ public class WalletController  implements Initializable
 	//---------------------------------------------------------------------
 	void fillLabelsFromStringBuilder(StringBuilder builder)
 	{
+		System.out.println("******************FILLING...");
 		JSONObject jsonObj = new JSONObject(builder.toString());
-		
 		JSONArray arr = jsonObj.getJSONObject("_embedded").getJSONArray("wallet_list");
-		
+		System.out.println(jsonObj.toString());
 		for (int i = 0; i < arr.length(); i++) 
 		{
 			
@@ -225,7 +217,10 @@ public class WalletController  implements Initializable
 			if (i==0)
 			{
 				JSONObject walletJson= arr.getJSONObject(0);
-				walletAddress1.setText(walletJson.getString("address"));
+				String address1=walletJson.getString("address");
+				if (address1.length()>14)
+					address1=address1.substring(0,14)+"...";
+				walletAddress1.setText(address1);
 				int coinId=walletJson.getInt("coin_id");
 				//System.out.println()
 				coinLbl1.setText(getCoinName(coinId));
@@ -235,7 +230,10 @@ public class WalletController  implements Initializable
 			else if (i==1)
 			{
 				JSONObject walletJson= arr.getJSONObject(1);
-				walletAddress2.setText(walletJson.getString("address"));
+				String address2=walletJson.getString("address");
+				if (address2.length()>14)
+					address2=address2.substring(0,14)+"...";
+				walletAddress2.setText(address2);
 				int coinId=walletJson.getInt("coin_id");
 				//System.out.println()
 				coinLbl2.setText(getCoinName(coinId));
@@ -269,7 +267,8 @@ public class WalletController  implements Initializable
 	StringBuilder getUserWalletInfo()
 	{
 		Object id=Storage.getInstance().get("userId");
-		//System.out.println(id.toString());
+		System.out.println("****IDDDDD");
+		System.out.println(id.toString());
 		if (id==null)
 			return null;
 		CloseableHttpClient httpClient=null;

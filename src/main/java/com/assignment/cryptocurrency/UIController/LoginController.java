@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
+//import javafx.fxml.FXML;
+//import javafx.fxml.FXMLLoader;
+//import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -41,13 +42,17 @@ public class LoginController implements Initializable {
     {
       StringBuilder builder = getUserInfo();
       System.out.println(builder.toString());
-      if (builder != null) {
+      if (builder != null) 
+      {
         JSONObject jsonObj = new JSONObject(builder.toString());
+        String id=Integer.toString(jsonObj.getInt("id"));
         Object firstName = jsonObj.get("first_name");
         Object lastName = jsonObj.get("last_name");
         Object mobile = jsonObj.get("mobile");
         Object status = jsonObj.get("status");
         Storage storage = Storage.getInstance();
+        storage.save("userId", id);
+        
         if (firstName != null) {
           storage.save("firstName", firstName.toString());
         }
@@ -61,6 +66,7 @@ public class LoginController implements Initializable {
           storage.save("status", status.toString());
         }
       }
+      showDashboardWindow();
 
     });
     registerAction.setOnAction(e ->
@@ -71,35 +77,37 @@ public class LoginController implements Initializable {
   }
 
   //----------------------------------------------------------------------
-  StringBuilder getUserInfo() {
+  StringBuilder getUserInfo() 
+  {
     CloseableHttpClient httpClient = null;
-    try {
+    try 
+    {
       httpClient = HttpClientBuilder.create().build();
       //username.setText("username7539");
       //password.setText("password7539");
-      String getQuery =
-          "http://localhost:8080/api/Users/Login?username=" + username.getText() + "&password="
-              + password.getText();
-      System.out.println("*******************************HEREEE");
-      System.out.println(getQuery);
-      HttpGet request = new HttpGet(
-          "http://localhost:8080/api/Users/Login?username=" + username.getText() + "&password="
-              + password.getText());
+      String getQuery ="http://localhost:8080/api/Users/Login?username=" + username.getText() + "&password="+ password.getText();
+      HttpGet request = new HttpGet(getQuery);
       request.addHeader("content-type", "application/json");
       HttpResponse response = httpClient.execute(request);
 
       if (response.getStatusLine().getStatusCode() == 200) {
         BufferedReader reader = null;
-        try {
+        try 
+        {
           reader = new BufferedReader(
               new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
           StringBuilder builder = new StringBuilder();
-          for (String line = null; (line = reader.readLine()) != null; ) {
+          for (String line = null; (line = reader.readLine()) != null; ) 
+          {
             builder.append(line).append("\n");
           }
           return builder;
-        } catch (Exception ex) {
-        } finally {
+        } 
+        catch (Exception ex) 
+        {
+        } 
+        finally 
+        {
 
         }
         //hideCurrentWindow();
@@ -118,11 +126,14 @@ public class LoginController implements Initializable {
   }
 
   //-----------------------------------------------------------------------------------------
-  void showWalletWindow() {
+  void showWalletWindow() 
+  {
     Parent root = null;
-    try {
+    try 
+    {
       root = FXMLLoader.load(getClass().getResource("../UIView/wallet.fxml"));
-    } catch (IOException e1) {
+    } catch (IOException e1) 
+    {
       e1.printStackTrace();
     }
     Stage stage = (Stage) username.getScene().getWindow();
@@ -131,14 +142,18 @@ public class LoginController implements Initializable {
     stage.show();
   }
 
-  ;
+  
 
   //-----------------------------------------------------------------------------------------
-  void showDashboardWindow() {
+  void showDashboardWindow() 
+  {
     Parent root = null;
-    try {
+    try 
+    {
       root = FXMLLoader.load(getClass().getResource("../UIView/dashboard.fxml"));
-    } catch (IOException e1) {
+    } 
+    catch (IOException e1) 
+    {
       e1.printStackTrace();
     }
     Stage stage = (Stage) username.getScene().getWindow();
@@ -146,24 +161,26 @@ public class LoginController implements Initializable {
     stage.setScene(new Scene(root, 800, 500));
     stage.show();
   }
+//-----------------------------------------------------------------------------------------
 
-  ;
-
-  //----------------------------------------------------------------------
-  void showRegisterWindow() {
-    Parent root = null;
-    try {
-      root = FXMLLoader.load(getClass().getResource("../UIView/register.fxml"));
-    } catch (IOException e1) {
-      // TODO Auto-generated catch block
-      e1.printStackTrace();
-    }
-    Stage stage = (Stage) registerAction.getScene().getWindow();
-    stage.setTitle("Register new user");
-    stage.setScene(new Scene(root, 600, 500));
-    stage.show();
-  }
-  //----------------------------------------------------------------------
+  void showRegisterWindow()
+	{
+		Parent root = null;
+		try 
+		{
+			root = FXMLLoader.load(getClass().getResource("../UIView/register.fxml"));
+		} 
+		catch (IOException e1) 
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 Stage stage = (Stage) registerAction.getScene().getWindow();
+	        stage.setTitle("Register new user");
+	        stage.setScene(new Scene(root, 600, 500));
+	        stage.show();
+	}
+	//----------------------------------------------------------------------
 }
 
 
