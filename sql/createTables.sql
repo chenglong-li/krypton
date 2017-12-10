@@ -91,3 +91,23 @@ CREATE TABLE voucher
   UNIQUE (code)
 )
   ENGINE = InnoDB;
+
+
+#-------------------------------------------------
+CREATE TABLE exchange
+(
+  id            INT AUTO_INCREMENT
+    PRIMARY KEY,
+  origin_type   VARCHAR(20)                        NOT NULL,
+  dest_type     VARCHAR(20)                        NOT NULL,
+  origin_amount DOUBLE DEFAULT '0'                 NULL,
+  dest_amount   DOUBLE DEFAULT '0'                 NOT NULL,
+  origin_price  DOUBLE DEFAULT '0'                 NOT NULL,
+  dest_price    DOUBLE DEFAULT '0'                 NOT NULL,
+  user_id       INT                                NOT NULL,
+  create_time   DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  CONSTRAINT exchange_id_uindex
+  UNIQUE (id)
+)
+  ENGINE = InnoDB;
+
