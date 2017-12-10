@@ -1,28 +1,26 @@
+#mysql:
+#username:root
+#password:ethereum420
 
-
-mysql:
-username:root
-password:ethereum420
-
--------------------------------------------------
-
+#-------------------------------------------------
+use prac;
 #CREATE DATABASE prac;
 DROP TABLE IF EXISTS user;
 CREATE TABLE user
 (
-    id 			INT NOT NULL AUTO_INCREMENT,
-    fname 		VARCHAR(255),
-    lname 		VARCHAR(255),
-   	userName 	VARCHAR(50),
-    password	VARCHAR(255),
-    email 		VARCHAR(255),	
-    mobile 		VARCHAR(255),
-    status 		VARCHAR(255),
-    PRIMARY KEY(id)
+  id 			INT NOT NULL AUTO_INCREMENT,
+  fname 		VARCHAR(255),
+  lname 		VARCHAR(255),
+  userName 	VARCHAR(50),
+  password	VARCHAR(255),
+  email 		VARCHAR(255),
+  mobile 		VARCHAR(255),
+  status 		VARCHAR(255),
+  PRIMARY KEY(id)
 );
--------------------------------------------------
+#-------------------------------------------------
 DROP TABLE IF EXISTS wallet;
-CREATE TABLE wallet 
+CREATE TABLE wallet
 (
   id 		INT NOT NULL AUTO_INCREMENT,
   coin_id	INT NOT NULL,
@@ -35,9 +33,9 @@ CREATE TABLE wallet
   FOREIGN KEY (user_id)
   REFERENCES user(id)
 );
--------------------------------------------------
+#-------------------------------------------------
 DROP TABLE IF EXISTS offer;
-CREATE TABLE offer 
+CREATE TABLE offer
 (
   coin_name VARCHAR(255) NOT NULL,
   amount	FLOAT NOT NULL,
@@ -49,16 +47,16 @@ CREATE TABLE offer
   FOREIGN KEY (dest_user_id)
   REFERENCES user(id)
 
-); 
--------------------------------------------------
-DROP TABLE IF EXISTS coin;
-CREATE TABLE coin 
-(
-	id 		INT NOT NULL AUTO_INCREMENT,
-	name	VARCHAR(255) NOT NULL,
-	PRIMARY KEY(id)
 );
--------------------------------------------------
+#-------------------------------------------------
+DROP TABLE IF EXISTS coin;
+CREATE TABLE coin
+(
+  id 		INT NOT NULL AUTO_INCREMENT,
+  name	VARCHAR(255) NOT NULL,
+  PRIMARY KEY(id)
+);
+#-------------------------------------------------
 DROP TABLE IF EXISTS orders;
 CREATE TABLE orders
 (
@@ -72,24 +70,24 @@ CREATE TABLE orders
   REFERENCES user(id),
   FOREIGN KEY (source_coin_id)
   REFERENCES coin(id)
-); 
--------------------------------------------------
+);
+#-------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- auto-generated definition
+CREATE TABLE voucher
+(
+  id         INT AUTO_INCREMENT
+    PRIMARY KEY,
+  code       VARCHAR(32)                        NULL,
+  type       VARCHAR(20)                        NULL,
+  start_date DATETIME DEFAULT CURRENT_TIMESTAMP NULL,
+  end_date   DATETIME DEFAULT CURRENT_TIMESTAMP NULL,
+  user_id    INT                                NULL,
+  limits     INT DEFAULT '1'                    NOT NULL,
+  status     VARCHAR(10) DEFAULT 'VALID'        NULL,
+  CONSTRAINT voucher_id_uindex
+  UNIQUE (id),
+  CONSTRAINT voucher_code_uindex
+  UNIQUE (code)
+)
+  ENGINE = InnoDB;
