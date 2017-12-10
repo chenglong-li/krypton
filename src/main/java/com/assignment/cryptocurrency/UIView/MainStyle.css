@@ -1,0 +1,111 @@
+/* ButtonView */
+
+.button{
+    -fx-border-width: 0.5px;
+    -fx-border-color: #ACACAC;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-background-color: white;
+    -fx-font-size: 12px; 
+    -fx-padding: 8px 25px;
+    -fx-font-weight:700;
+    -fx-background-color: #6ba313; 
+    -fx-text-fill: white; 
+}
+.button:hover{
+    -fx-background-color: #EA5444;
+    -fx-text-fill: white;
+
+}
+.button:focused{
+   -fx-border-width: 0.5px;
+    -fx-border-color: #ACACAC;
+   -fx-border-radius: 50px;
+}
+.button:pressed{
+    -fx-background-color: #EA5444;
+    -fx-text-fill: white;
+}
+
+
+.menu .label {
+	-fx-text-fill: white;
+	-fx-padding: 10px;
+	-fx-font-size: 18px;
+}
+
+.menu:hover {
+	-fx-background-color: #16b078;	
+}
+
+.menu-item .label{
+    -fx-text-fill: black;
+    -fx-padding: 0px;
+}
+
+
+.tab-pane *.tab-header-background 
+{
+-fx-background-color: -fx-outer-border, -fx-inner-border, derive(-fx-color, -20%);
+-fx-background-color: white;
+/*-fx-effect: innershadow(two-pass-box , rgba(0,0,0,0.6) , 4, 0.0 , 0 , 0);*/
+}
+/*.tab-pane *.tab-header-area {*/
+/* I would like to use -fx-tab-border-color here, but for some reason it */
+/* just isn't the correct color, even though it works in :top above */
+/*    -fx-background-color: -fx-tab-border-color, lightgray;*/
+/*}*/
+
+.tab-pane 
+{
+/*-fx-skin: "com.sun.javafx.scene.control.skin.TabPaneSkin";
+/* -fx-tab-min-width: 4.583em;  55 */
+/* -fx-tab-max-width: 4.583em; 55 */
+-fx-tab-min-height: 4em; /* 24 */
+-fx-tab-max-height: 4em; /* 24 */
+-fx-background-color: white;
+}
+.tab .tab-label 
+{
+/*-fx-skin: "com.sun.javafx.scene.control.skin.LabelSkin";*/
+-fx-background-color: transparent;    
+-fx-alignment: CENTER;
+-fx-text-fill: -fx-text-base-color;
+-fx-font-size:15px;
+}
+.tab .tab-label:selected .tab-label {
+	-fx-text-fill: red;
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+-fx-border-color: transparent;
+}
+/*
+.tab *.tab-label Text {
+-fx-effect: dropshadow(two-pass-box , rgba(255, 255, 255, 0.4), 1, 0.0 , 0, 1);
+}*/
+.tab-content-area 
+{
+/*-fx-background-color: -fx-control-inner-background;*/
+-fx-background-color: white;
+-fx-padding: 0.0em; /* 0 */
+/* -fx-opacity: -fx-disabled-opacity;*/
+}
+.tab 
+{
+/* This is how it is done in Button, but the -1 inset caused a white line  */
+/* to appear beneath the tab, which looks bad, so it's taken out below.    */
+/*    -fx-background-color: -fx-shadow-highlight-color, -fx-tab-border-color, -fx-inner-border, -fx-body-color;
+-fx-background-radius: 5 5 0 0, 5 5 0 0, 4 4 0 0, 3 3 0 0;
+-fx-background-insets: 0 0 -1 0, 0, 1, 2;*/
+-fx-background-insets: 0, 0, 0;
+/*-fx-background-radius: 5 5 0 0, 4 4 0 0, 3 3 0 0;*/
+-fx-background-radius: 0 0 0 0, 0 0 0 0, 0 0 0 0;
+
+-fx-padding: 12px 12px 12px 12px;
+-fx-background-color: white;
+
+/*    -fx-text-fill: -fx-text-base-color;*/
+}
+.tab:selected {
+	-fx-background-color:lightgray;
+}
