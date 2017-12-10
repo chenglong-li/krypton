@@ -15,4 +15,8 @@ public interface WalletRepository extends JpaRepository<Wallet, Integer> {
 
   @RestResource
   List<Wallet> findByUserId(@Param("userId") Integer userId);
+
+  @RestResource(exported = false)
+  Wallet findByUserIdAndCoinId(@Param("userId") Integer userId,
+      @Param("coinId") Integer coinId);
 }

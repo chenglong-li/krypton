@@ -16,6 +16,7 @@ import com.assignment.cryptocurrency.util.enums.VoucherType;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -57,6 +58,10 @@ public class RegisterServiceImpl implements RegisterService {
   public User register(User user, String inviteCode) throws NotFoundException {
 
     LOGGER.info("reward the inviter...");
+    List<Coin> coinList = coinRepository.findAll();
+    Map<String, Integer> coinMap = coinList.stream()
+        .collect(Collectors.toMap(Coin::getName, Coin::getId));
+
     Voucher voucher;
     VoucherService voucherService = voucherServiceFactory.getInstance(VoucherType.INVITE);
     if (inviteCode!=null && !inviteCode.isEmpty()) {
@@ -65,7 +70,9 @@ public class RegisterServiceImpl implements RegisterService {
         throw new NotFoundException("The invite code does not exist");
       }
       User inviter = userRepository.findOne(voucher.getUserId());
-      Wallet bitcoinWallet = walletRepository.findOne(inviter.getId());
+      Wallet bitcoinWallet = walletRepository.findByUserIdAndCoinId(
+          inviter.getId(),
+          coinMap.get(CoinType.Bitcoin.name()));
       bitcoinWallet.setAmount(bitcoinWallet.getAmount().add(new BigDecimal("1")));
       walletRepository.save(bitcoinWallet);
       LOGGER.info("rewarded {} 1 bitcoin", inviter.getFirstName());
@@ -86,7 +93,6 @@ public class RegisterServiceImpl implements RegisterService {
     voucherService.save(voucher);
 
     LOGGER.info("create wallet for user...");
-    List<Coin> coinList = coinRepository.findAll();
     List<Wallet> walletList = new ArrayList<>();
     coinList.forEach(coin -> {
       Wallet wallet = new Wallet();
