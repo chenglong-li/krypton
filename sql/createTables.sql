@@ -111,3 +111,20 @@ CREATE TABLE exchange
 )
   ENGINE = InnoDB;
 
+#-------------------------------------------------
+CREATE TABLE transfer
+(
+  id             INT AUTO_INCREMENT
+    PRIMARY KEY,
+  origin_user_id INT                                NOT NULL,
+  dest_user_id   INT                                NOT NULL,
+  crypton_type   VARCHAR(20)                        NULL,
+  crypton_amount DOUBLE                             NULL,
+  crypton_price  DOUBLE                             NULL,
+  create_time    DATETIME DEFAULT CURRENT_TIMESTAMP NULL,
+  CONSTRAINT transfer_id_uindex
+  UNIQUE (id)
+)
+  ENGINE = InnoDB;
+
+
