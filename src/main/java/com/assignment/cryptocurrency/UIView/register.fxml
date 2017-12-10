@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.cryptocurrency.UIController.RegisterController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="628.0" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.cryptocurrency.UIController.RegisterController">
    <children>
       <Label layoutX="50.0" layoutY="64.0" text="User name:">
          <font>
@@ -20,7 +20,7 @@
       </Label>
       <TextField fx:id="username" layoutX="222.0" layoutY="64.0" prefHeight="40.0" prefWidth="289.0" />
       <TextField fx:id="password" layoutX="222.0" layoutY="134.0" prefHeight="40.0" prefWidth="289.0" />
-      <Button fx:id="registerNewUserAction" layoutX="454.0" layoutY="483.0" mnemonicParsing="false" text="register" />
+      <Button fx:id="registerNewUserAction" layoutX="417.0" layoutY="487.0" mnemonicParsing="false" text="register" />
       <TextField fx:id="passwordConfirm" layoutX="223.0" layoutY="203.0" prefHeight="40.0" prefWidth="289.0" />
       <Label layoutX="48.0" layoutY="207.0" text="Comfirm pwd:">
          <font>
