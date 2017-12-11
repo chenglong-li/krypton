@@ -62,16 +62,19 @@ public class ExchangeController implements Initializable
 		
 		getOriginPrice.setOnAction(e ->
 		{
-			originPrice=Double.parseDouble(new CoinUtil().getCoinPriceByName(originTypeTxt.getText()));
-			originPriceLbl.setText(Double.toString(originPrice));
+			if (originTypeTxt.getText().length()>0)
+			{
+				originPrice=Double.parseDouble(new CoinUtil().getCoinPriceByName(originTypeTxt.getText()));
+				originPriceLbl.setText(Double.toString(originPrice)+" $");
+			}
 		});
 		
 		getDestPrice.setOnAction(e ->
 		{
-			destPrice=Double.parseDouble(new CoinUtil().getCoinPriceByName(destTypeTxt.getText()));
-			destPriceLbl.setText(Double.toString(destPrice));
-			if (originAmountTxt.getText().length()>0)
+			if (originAmountTxt.getText().length()>0 && destTypeTxt.getText().length()>0)
 			{
+				destPrice=Double.parseDouble(new CoinUtil().getCoinPriceByName(destTypeTxt.getText()));
+				destPriceLbl.setText(Double.toString(destPrice)+" $");
 				double originAmount=Double.parseDouble(originAmountTxt.getText());
 				double destAmount=originAmount*originPrice/destPrice;
 				destAmountLbl.setText(Double.toString(destAmount));
@@ -82,7 +85,11 @@ public class ExchangeController implements Initializable
 		{
 			if (originAmountTxt.getText().length()>0 && destAmountLbl.getText().length()>0)
 			{
-				sendFormDataToServer(Storage.getInstance().get("userId").toString());
+				if(sendFormDataToServer(Storage.getInstance().get("userId").toString()))
+				{
+					((Node) e.getSource()).getScene().getWindow().hide();
+					showDashboard();
+				}
 			}
 		});
 	}
@@ -93,12 +100,12 @@ public class ExchangeController implements Initializable
 		
 		JSONObject json = new JSONObject();
 		json.put("user_id", userId);
-		json.put("origin_type", originTypeTxt.getText());
-		json.put("dest_type", destTypeTxt.getText());
+		json.put("origin_type", originTypeTxt.getText().toUpperCase());
+		json.put("dest_type", destTypeTxt.getText().toUpperCase());
 		json.put("origin_amount", originAmountTxt.getText());
 		json.put("dest_amount", destAmountLbl.getText());
-		json.put("origin_price", originPriceLbl.getText());
-		json.put("dest_price", destPriceLbl.getText());
+		json.put("origin_price", Double.toString(originPrice));
+		json.put("dest_price", Double.toString(destPrice));
 		
 		httpClient = HttpClientBuilder.create().build();
 		String url="http://localhost:8080/api/Users/"+userId+"/Exchange";
