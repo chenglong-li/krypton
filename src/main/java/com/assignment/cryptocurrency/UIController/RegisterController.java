@@ -73,7 +73,7 @@ public class RegisterController implements Initializable
 			httpClient = HttpClientBuilder.create().build();
 		    HttpPost request = new HttpPost("http://localhost:8080/api/Users");
 		    StringEntity params = new StringEntity(json.toString());
-		    System.out.println(json.toString());
+		    
 		    request.addHeader("content-type", "application/json");
 		    request.setEntity(params);
 		    HttpResponse  response = httpClient.execute(request);

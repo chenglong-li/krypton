@@ -21,6 +21,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.assignment.cryptocurrency.util.CoinUtil;
 import com.assignment.cryptocurrency.util.Storage;
 
 import javafx.fxml.*;
@@ -99,88 +100,39 @@ public class WalletController  implements Initializable
 	{
 		if (coinLabel1!="" && coinLabel1!=null)
 		{
-			String price1s= getCoinPriceByName(coinLabel1);
+			String price1s= new CoinUtil().getCoinPriceByName(coinLabel1);
 			if (price1!=null)
 				price1.setText(price1s.toString());
 		}
 		
 		if (coinLabel2!="" && coinLabel2!=null)
 		{
-			String price2s= getCoinPriceByName(coinLabel2);
+			String price2s= new CoinUtil().getCoinPriceByName(coinLabel2);
 			if (price2!=null)
 				price2.setText(price2s.toString());
 		}
 		
 		if (coinLabel3!="" && coinLabel3!=null)
 		{
-			String price3s= getCoinPriceByName(coinLabel3);
+			String price3s= new CoinUtil().getCoinPriceByName(coinLabel3);
 			if (price3!=null)
 				price3.setText(price3s.toString());
 		}
 		
 		if (coinLabel4!="" && coinLabel4!=null)
 		{
-			String price4s= getCoinPriceByName(coinLabel4);
+			String price4s= new CoinUtil().getCoinPriceByName(coinLabel4);
 			if (price4!=null)
 				price4.setText(price4s.toString());
 		}
 		
 		if (coinLabel5!="" && coinLabel5!=null)
 		{
-			String price5s= getCoinPriceByName(coinLabel5);
+			String price5s= new CoinUtil().getCoinPriceByName(coinLabel5);
 			if (price5!=null)
 				price5.setText(price5s.toString());
 		}
-	}
-	//---------------------------------------------------------------------
-	String getCoinPriceByName(String name)
-	{
-		CloseableHttpClient httpClient=null;
-		try 
-		{
-			httpClient = HttpClientBuilder.create().build();
-			HttpGet request = new HttpGet("https://api.coinmarketcap.com/v1/ticker/"+name);
-		    request.addHeader("content-type", "application/json");
-		    HttpResponse  response = httpClient.execute(request);
-		    if(response.getStatusLine().getStatusCode()==200)
-		    {
-		    	BufferedReader reader = null;
-				try 
-				{
-					reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
-					StringBuilder builder = new StringBuilder();
-					for (String line = null; (line = reader.readLine()) != null;) 
-					{
-					    builder.append(line).append("\n");
-					}
-					JSONArray arr = new JSONArray(builder.toString());
-					JSONObject json= arr.getJSONObject(0);
-					return json.getString("price_usd");
-				}
-				catch (Exception ex) 
-				{
-				} 
-				finally 
-				{
-					
-				}
-		    }
-		} 
-		catch (Exception ex) 
-		{
-		} 
-		finally 
-		{
-			try 
-			{
-				httpClient.close();
-			} 
-			catch (IOException e1) 
-			{
-			}
-		}
-		return null;
-	}
+	}	
 	//---------------------------------------------------------------------
 	String getCoinName(int id)
 	{

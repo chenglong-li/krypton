@@ -7,7 +7,7 @@
 
 <Pane fx:controller="com.assignment.cryptocurrency.UIController.WalletController"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" stylesheets="@MainStyle.css" prefWidth="628.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-   <Button layoutX="829.0" layoutY="360.0" mnemonicParsing="false" text="Back to dashborad"  fx:id="showDashboardAction"  />
+   <Button layoutX="829.0" layoutY="560.0" mnemonicParsing="false" text="Back to dashborad"  fx:id="showDashboardAction"  />
    
    
       <Label layoutX="68.0" layoutY="22.0" text="MY WALLET">
@@ -20,140 +20,188 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="261.0" layoutY="90.0" text="Last Name" fx:id="lastNameLbl">
+      <Label layoutX="361.0" layoutY="90.0" text="Last Name" fx:id="lastNameLbl">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       
-      <Label layoutX="41.0" layoutY="161.0" text="Wallet Address">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <Label layoutX="91.0" layoutY="161.0" text="Wallet Address">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Label layoutX="291.0" layoutY="161.0" text="Coin">
+      <Label layoutX="400" layoutY="161.0" text="Coin">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Label layoutX="411.0" layoutY="161.0" text="Amount">
+      <Label layoutX="611.0" layoutY="161.0" text="Amount">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
      
-      <Label layoutX="611.0" layoutY="161.0" text="Price">
+      <Label layoutX="880" layoutY="161.0" text="Price">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
      
-     <Label layoutX="91.0" layoutY="201.0" text="" fx:id="walletAddress1">
+     
+     
+     
+     
+     
+     <Label layoutX="91.0" layoutY="210" text="" fx:id="walletAddress1">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="291.0" layoutY="201.0" text="" fx:id="coinLbl1">
+      <Label layoutX="400" layoutY="210" text="" fx:id="coinLbl1">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="411.0" layoutY="201.0" text="" fx:id="amount1">
+      <Label layoutX="611.0" layoutY="210" text="" fx:id="amount1">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
      
-      <Label layoutX="611.0" layoutY="201.0" text="" fx:id="price1">
+      <Label layoutX="880" layoutY="210" text="" fx:id="price1">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
      
-     <Label layoutX="91.0" layoutY="241.0" text="" fx:id="walletAddress2">
+     
+     
+     
+     
+     
+     
+     
+     <Label layoutX="91.0" layoutY="260" text="" fx:id="walletAddress2">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="291.0" layoutY="241.0" text="" fx:id="coinLbl2">
+      <Label layoutX="400" layoutY="260" text="" fx:id="coinLbl2">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="411.0" layoutY="241.0" text="" fx:id="amount2">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      
-      <Label layoutX="611.0" layoutY="241.0" text="" fx:id="price2">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      
-       <Label layoutX="91.0" layoutY="321.0" text="" fx:id="walletAddress3">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label layoutX="291.0" layoutY="321.0" text="" fx:id="coinLbl3">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label layoutX="411.0" layoutY="321.0" text="" fx:id="amount3">
+      <Label layoutX="611.0" layoutY="260" text="" fx:id="amount2">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       
-       <Label layoutX="611.0" layoutY="321.0" text="" fx:id="price3">
+      <Label layoutX="880" layoutY="260" text="" fx:id="price2">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       
       
-       <Label layoutX="91.0" layoutY="381.0" text="" fx:id="walletAddress4">
+      
+      
+      
+      
+      
+      
+      
+       <Label layoutX="91.0" layoutY="310" text="" fx:id="walletAddress3">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="291.0" layoutY="381.0" text="" fx:id="coinLbl4">
+      <Label layoutX="400" layoutY="310" text="" fx:id="coinLbl3">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="411.0" layoutY="381.0" text="" fx:id="amount4">
+      <Label layoutX="611.0" layoutY="310" text="" fx:id="amount3">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       
-       <Label layoutX="611.0" layoutY="381.0" text="" fx:id="price4">
+       <Label layoutX="880" layoutY="310" text="" fx:id="price3">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       
-       <Label layoutX="91.0" layoutY="441.0" text="" fx:id="walletAddress5">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+       <Label layoutX="91.0" layoutY="360" text="" fx:id="walletAddress4">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="291.0" layoutY="441.0" text="" fx:id="coinLbl5">
+      <Label layoutX="400" layoutY="360" text="" fx:id="coinLbl4">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="411.0" layoutY="441.0" text="" fx:id="amount5">
+      <Label layoutX="611.0" layoutY="360" text="" fx:id="amount4">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       
-       <Label layoutX="611.0" layoutY="441.0" text="" fx:id="price5">
+       <Label layoutX="880" layoutY="360" text="" fx:id="price4">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+       <Label layoutX="91.0" layoutY="410" text="" fx:id="walletAddress5">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="400" layoutY="410" text="" fx:id="coinLbl5">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="611.0" layoutY="410" text="" fx:id="amount5">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      
+       <Label layoutX="880" layoutY="410" text="" fx:id="price5">
          <font>
             <Font size="22.0" />
          </font>
