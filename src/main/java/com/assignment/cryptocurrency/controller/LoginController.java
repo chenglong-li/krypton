@@ -1,5 +1,6 @@
 package com.assignment.cryptocurrency.controller;
 
+import com.assignment.cryptocurrency.model.entity.Admin;
 import com.assignment.cryptocurrency.model.entity.User;
 import com.assignment.cryptocurrency.service.LoginService;
 import javassist.NotFoundException;
@@ -28,10 +29,16 @@ public class LoginController {
     this.loginService = loginService;
   }
 
-  @RequestMapping(value = "/Login", method = RequestMethod.GET)
+  @RequestMapping(value = "/Login", params = {"type=user"}, method = RequestMethod.GET)
   public User login(@RequestParam String username, @RequestParam String password)
       throws NotFoundException {
     return loginService.login(username, password);
+  }
+
+  @RequestMapping(value = "/Login", params = {"type=admin"}, method = RequestMethod.GET)
+  public Admin loginAsAdmin(@RequestParam String username, @RequestParam String password)
+      throws NotFoundException {
+    return loginService.loginAsAdmin(username, password);
   }
 
 }

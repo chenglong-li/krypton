@@ -127,4 +127,16 @@ CREATE TABLE transfer
 )
   ENGINE = InnoDB;
 
+#-------------------------------------------------
+CREATE TABLE admin
+(
+  id       INT AUTO_INCREMENT
+    PRIMARY KEY,
+  username VARCHAR(20) NOT NULL,
+  password VARCHAR(20) NOT NULL,
+  CONSTRAINT admin_id_uindex
+  UNIQUE (id)
+)
+  ENGINE = InnoDB;
+
 

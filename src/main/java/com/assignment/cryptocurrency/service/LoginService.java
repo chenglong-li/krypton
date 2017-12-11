@@ -1,5 +1,6 @@
 package com.assignment.cryptocurrency.service;
 
+import com.assignment.cryptocurrency.model.entity.Admin;
 import com.assignment.cryptocurrency.model.entity.User;
 import javassist.NotFoundException;
 
@@ -9,5 +10,7 @@ import javassist.NotFoundException;
 public interface LoginService {
 
   User login(String username, String password) throws NotFoundException;
+
+  Admin loginAsAdmin(String username, String password) throws NotFoundException;
 
 }
