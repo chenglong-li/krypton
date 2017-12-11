@@ -43,7 +43,7 @@ public class TransferServiceImpl implements TransferService {
     Wallet originWallet = walletRepository.findByUserIdAndCoinId(
         transfer.getOriginUserId(),
         coinMap.get(transfer.getCryptonType()));
-    originWallet.setAmount(originWallet.getAmount().add(transfer.getCryptonAmount()).negate());
+    originWallet.setAmount(originWallet.getAmount().add(transfer.getCryptonAmount().negate()));
     Wallet destWallet = walletRepository.findByUserIdAndCoinId(
         transfer.getDestUserId(),
         coinMap.get(transfer.getCryptonType()));
