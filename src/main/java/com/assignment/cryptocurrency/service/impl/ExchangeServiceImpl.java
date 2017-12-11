@@ -61,6 +61,9 @@ public class ExchangeServiceImpl implements ExchangeService {
     walletList.forEach(w -> {
       String coinName = coinMap.get(w.getCoinId());
       if (exchange.getOriginType().name().equalsIgnoreCase(coinName)) {
+        if (w.getAmount().compareTo(exchange.getOriginAmount()) < 0) {
+          throw new IllegalArgumentException("The user doesn't have enough " + coinName);
+        }
         w.setAmount(w.getAmount().add(exchange.getOriginAmount().negate()));
         saveWalletList.add(w);
       }

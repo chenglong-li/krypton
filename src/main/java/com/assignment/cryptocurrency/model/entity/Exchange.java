@@ -1,7 +1,7 @@
 package com.assignment.cryptocurrency.model.entity;
 
 import com.assignment.cryptocurrency.general.Model;
-import com.assignment.cryptocurrency.util.enums.CoinType;
+import com.assignment.cryptocurrency.util.enums.CoinName;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.math.BigDecimal;
@@ -16,8 +16,8 @@ import javax.persistence.Table;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Exchange extends Model {
 
-  private CoinType originType;
-  private CoinType destType;
+  private CoinName originType;
+  private CoinName destType;
   private BigDecimal originAmount;
   private BigDecimal destAmount;
   private BigDecimal originPrice;
@@ -25,19 +25,19 @@ public class Exchange extends Model {
   private Integer userId;
   private Date createTime;
 
-  public CoinType getOriginType() {
+  public CoinName getOriginType() {
     return originType;
   }
 
-  public void setOriginType(CoinType originType) {
+  public void setOriginType(CoinName originType) {
     this.originType = originType;
   }
 
-  public CoinType getDestType() {
+  public CoinName getDestType() {
     return destType;
   }
 
-  public void setDestType(CoinType destType) {
+  public void setDestType(CoinName destType) {
     this.destType = destType;
   }
 

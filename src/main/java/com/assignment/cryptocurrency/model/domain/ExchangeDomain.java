@@ -1,6 +1,6 @@
 package com.assignment.cryptocurrency.model.domain;
 
-import com.assignment.cryptocurrency.util.enums.CoinType;
+import com.assignment.cryptocurrency.util.enums.CoinName;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.math.BigDecimal;
@@ -11,9 +11,9 @@ import java.math.BigDecimal;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class ExchangeDomain {
 
-  private CoinType originType;
+  private CoinName originType;
 
-  private CoinType destType;
+  private CoinName destType;
 
   private BigDecimal originAmount;
   private BigDecimal destAmount;
@@ -22,19 +22,19 @@ public class ExchangeDomain {
 
   private BigDecimal destPrice;
 
-  public CoinType getOriginType() {
+  public CoinName getOriginType() {
     return originType;
   }
 
-  public void setOriginType(CoinType originType) {
+  public void setOriginType(CoinName originType) {
     this.originType = originType;
   }
 
-  public CoinType getDestType() {
+  public CoinName getDestType() {
     return destType;
   }
 
-  public void setDestType(CoinType destType) {
+  public void setDestType(CoinName destType) {
     this.destType = destType;
   }
 

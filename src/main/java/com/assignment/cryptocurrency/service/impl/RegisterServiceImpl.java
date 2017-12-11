@@ -10,7 +10,7 @@ import com.assignment.cryptocurrency.repository.UserRepository;
 import com.assignment.cryptocurrency.repository.WalletRepository;
 import com.assignment.cryptocurrency.service.RegisterService;
 import com.assignment.cryptocurrency.service.VoucherService;
-import com.assignment.cryptocurrency.util.enums.CoinType;
+import com.assignment.cryptocurrency.util.enums.CoinName;
 import com.assignment.cryptocurrency.util.enums.VoucherStatus;
 import com.assignment.cryptocurrency.util.enums.VoucherType;
 import java.math.BigDecimal;
@@ -72,7 +72,7 @@ public class RegisterServiceImpl implements RegisterService {
       User inviter = userRepository.findOne(voucher.getUserId());
       Wallet bitcoinWallet = walletRepository.findByUserIdAndCoinId(
           inviter.getId(),
-          coinMap.get(CoinType.BITCOIN.name()));
+          coinMap.get(CoinName.BITCOIN.name()));
       bitcoinWallet.setAmount(bitcoinWallet.getAmount().add(new BigDecimal("1")));
       walletRepository.save(bitcoinWallet);
       LOGGER.info("rewarded {} 1 bitcoin", inviter.getFirstName());
@@ -96,7 +96,7 @@ public class RegisterServiceImpl implements RegisterService {
     List<Wallet> walletList = new ArrayList<>();
     coinList.forEach(coin -> {
       Wallet wallet = new Wallet();
-      if (coin.getName().equalsIgnoreCase(CoinType.BITCOIN.name())) {
+      if (coin.getName().equalsIgnoreCase(CoinName.BITCOIN.name())) {
         wallet.setAmount(new BigDecimal("20"));
       } else {
         wallet.setAmount(new BigDecimal("0"));
