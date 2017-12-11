@@ -36,32 +36,18 @@ public class DashboardController implements Initializable {
   @FXML
   private Button showExchangeAction1;
   
-  @FXML
-  private Button showViewAllOffersAction;
-  @FXML
-  private Button showPutNewOfferAction;
-  @FXML
-  private Button showViewMyOffersAction;
-  @FXML
-  private Button showAcceptOfferAction;
-  @FXML
-  private Button showExchangeAction;
-  @FXML
-  private Button showTransferAction;
-  @FXML
-  private Button showMakeOrderAction;
-  @FXML
-  private Button showViewAllOrdersAction;
-  @FXML
-  private Button showViewMyOrdersAction;
-  @FXML
-  private Button showWalletAction;
-
-  @FXML
-  private Button signOutAction;
-
-  @FXML
-  private Label myInviteCode;
+  @FXML  private Button showViewAllOffersAction;
+  @FXML  private Button showPutNewOfferAction;
+  @FXML  private Button showViewMyOffersAction;
+  @FXML  private Button showAcceptOfferAction;
+  @FXML  private Button showExchangeAction;
+  @FXML  private Button showTransferAction;
+  @FXML  private Button showMakeOrderAction;
+  @FXML  private Button showViewAllOrdersAction;
+  @FXML  private Button showViewMyOrdersAction;
+  @FXML  private Button showWalletAction;
+  @FXML  private Button signOutAction;
+  @FXML  private Label myInviteCode;
 
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
@@ -179,7 +165,7 @@ public class DashboardController implements Initializable {
     }
     Stage stage = (Stage) showWalletAction.getScene().getWindow();
     stage.setTitle("Wallet");
-    stage.setScene(new Scene(root, 1100, 500));
+    stage.setScene(new Scene(root, 1100, 700));
     stage.show();
   }
 

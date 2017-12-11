@@ -83,8 +83,8 @@ public class LoginController implements Initializable {
     try 
     {
       httpClient = HttpClientBuilder.create().build();
-      //username.setText("username7539");
-      //password.setText("password7539");
+      username.setText("username1243");
+      password.setText("password1243");
       String getQuery ="http://localhost:8080/api/Users/Login?username=" + username.getText() + "&password="+ password.getText();
       HttpGet request = new HttpGet(getQuery);
       request.addHeader("content-type", "application/json");
@@ -141,9 +141,6 @@ public class LoginController implements Initializable {
     stage.setScene(new Scene(root, 800, 500));
     stage.show();
   }
-
-  
-
   //-----------------------------------------------------------------------------------------
   void showDashboardWindow() 
   {
