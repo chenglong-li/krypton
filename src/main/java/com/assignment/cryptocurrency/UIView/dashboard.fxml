@@ -25,17 +25,11 @@
             <Font size="24.0" />
          </font>
       </Label>
-      		<Button fx:id="showWalletAction" layoutX="520.0" layoutY="192" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="my wallet" />
-            <Button fx:id="showViewAllOffersAction" layoutX="40.0" layoutY="192" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view all offers" />
-            <Button fx:id="showPutNewOfferAction" layoutX="40.0" layoutY="235" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="put new offer" />
-            <Button fx:id="showViewMyOffersAction" layoutX="40.0" layoutY="277.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view my offers" />
-            <Button fx:id="showExchangeAction" layoutX="40.0" layoutY="321.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="exchange" />
-            <Button fx:id="showAcceptOfferAction" layoutX="280.0" layoutY="192.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="accept offer" />
+      		<Button fx:id="showWalletAction" layoutX="440.0" layoutY="280" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="my wallet" />
+
+            <Button fx:id="showExchangeAction" layoutX="280" layoutY="280" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="exchange" />
             <Button fx:id="showTransferAction" layoutX="280.0" layoutY="235" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="transfer" />
-            <Button fx:id="showMakeOrderAction" layoutX="280.0" layoutY="277" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="make order" />
-            <Button fx:id="showViewAllOrdersAction" layoutX="280.0" layoutY="321" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view all orders" />
-            <Button fx:id="showViewMyOrdersAction" layoutX="280.0" layoutY="364" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="view my orders" />
-            <Button fx:id="signOutAction" layoutX="520.0" layoutY="235" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Sign out" />
+            <Button fx:id="signOutAction" layoutX="440.0" layoutY="235" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Sign out" />
          </children>
       </Pane>
       <Button fx:id="showExchangeAction1" layoutX="54.0" layoutY="193.0" mnemonicParsing="false" onAction="#showMyInviteCode" prefHeight="31.0" prefWidth="128.0" text="My Invite Code" />

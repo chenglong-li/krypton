@@ -36,15 +36,15 @@ public class DashboardController implements Initializable {
   @FXML
   private Button showExchangeAction1;
   
-  @FXML  private Button showViewAllOffersAction;
-  @FXML  private Button showPutNewOfferAction;
-  @FXML  private Button showViewMyOffersAction;
-  @FXML  private Button showAcceptOfferAction;
+  //@FXML  private Button showViewAllOffersAction;
+  //@FXML  private Button showPutNewOfferAction;
+  //@FXML  private Button showViewMyOffersAction;
+  //@FXML  private Button showAcceptOfferAction;
   @FXML  private Button showExchangeAction;
   @FXML  private Button showTransferAction;
-  @FXML  private Button showMakeOrderAction;
-  @FXML  private Button showViewAllOrdersAction;
-  @FXML  private Button showViewMyOrdersAction;
+  //@FXML  private Button showMakeOrderAction;
+  //@FXML  private Button showViewAllOrdersAction;
+  //@FXML  private Button showViewMyOrdersAction;
   @FXML  private Button showWalletAction;
   @FXML  private Button signOutAction;
   @FXML  private Label myInviteCode;
@@ -84,7 +84,7 @@ public class DashboardController implements Initializable {
       showWalletWindow();
     });
 
-    showViewAllOffersAction.setOnAction(e ->
+    /*showViewAllOffersAction.setOnAction(e ->
     {
       ((Node) e.getSource()).getScene().getWindow().hide();
       showViewAllOffers();
@@ -113,7 +113,7 @@ public class DashboardController implements Initializable {
       ((Node) e.getSource()).getScene().getWindow().hide();
       showAcceptOffer();
     });
-
+*/
     showExchangeAction.setOnAction(e ->
     {
       ((Node) e.getSource()).getScene().getWindow().hide();
@@ -126,7 +126,7 @@ public class DashboardController implements Initializable {
       showTransfer();
     });
 
-    showMakeOrderAction.setOnAction(e ->
+  /*  showMakeOrderAction.setOnAction(e ->
     {
       ((Node) e.getSource()).getScene().getWindow().hide();
       showMakeOrder();
@@ -138,7 +138,8 @@ public class DashboardController implements Initializable {
       showViewAllOrders();
     });
   }
-
+*/
+  }
   //-----------------------------------------------------------------------------------------
   void showLoginWindow() {
     Parent root = null;
