@@ -10,26 +10,17 @@ import java.math.BigDecimal;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class TransferDomain {
 
-  private Integer originUserId;
-  private Integer destUserId;
+  private String destUsername;
   private String cryptonType;
   private BigDecimal cryptonAmount;
   private BigDecimal cryptonPrice;
 
-  public Integer getOriginUserId() {
-    return originUserId;
+  public String getDestUsername() {
+    return destUsername;
   }
 
-  public void setOriginUserId(Integer originUserId) {
-    this.originUserId = originUserId;
-  }
-
-  public Integer getDestUserId() {
-    return destUserId;
-  }
-
-  public void setDestUserId(Integer destUserId) {
-    this.destUserId = destUserId;
+  public void setDestUsername(String destUsername) {
+    this.destUsername = destUsername;
   }
 
   public String getCryptonType() {
