@@ -34,6 +34,9 @@ public class TransferServiceImpl implements TransferService {
   @Override
   public void transfer(Transfer transfer) {
     List<Coin> coinList = coinRepository.findAll();
+    coinList.stream().forEach(c->{
+      c.setName(c.getName().toUpperCase());
+    });
     Map<String, Integer> coinMap = coinList.stream()
         .collect(Collectors.toMap(Coin::getName, Coin::getId));
 

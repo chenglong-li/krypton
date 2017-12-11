@@ -47,7 +47,7 @@ public class TransferController {
     transfer.setCryptonAmount(transferDomain.getCryptonAmount());
     transfer.setOriginUserId(id);
     transfer.setCryptonPrice(transferDomain.getCryptonPrice());
-    transfer.setCryptonType(transferDomain.getCryptonType());
+    transfer.setCryptonType(transferDomain.getCryptonType().toUpperCase());
     User destUser = userService.findByUsername(transferDomain.getDestUsername());
     transfer.setDestUserId(destUser.getId());
 

@@ -54,6 +54,9 @@ public class ExchangeServiceImpl implements ExchangeService {
 //    exchange.setDestAmount(destAmount);
 
     List<Coin> coinList = coinRepository.findAll();
+    coinList.stream().forEach(c->{
+      c.setName(c.getName().toUpperCase());
+    });
     Map<Integer, String> coinMap = coinList.stream()
         .collect(Collectors.toMap(Coin::getId, Coin::getName));
 
