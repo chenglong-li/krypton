@@ -31,8 +31,6 @@ public class WalletController  implements Initializable
 	
 	@FXML private Label firstNameLbl;
 	@FXML private Label lastNameLbl;
-	
-	
 	@FXML private Button showDashboardAction;
 	
 	@FXML private Label walletAddress1;
@@ -44,18 +42,24 @@ public class WalletController  implements Initializable
 	@FXML private Label walletAddress3;
 	@FXML private Label coinLbl3;
 	@FXML private Label amount3;
-	
+	@FXML private Label walletAddress4;
+	@FXML private Label coinLbl4;
+	@FXML private Label amount4;
+	@FXML private Label walletAddress5;
+	@FXML private Label coinLbl5;
+	@FXML private Label amount5;
 	@FXML private Label price1;
 	@FXML private Label price2;
+	@FXML private Label price3;
+	@FXML private Label price4;
+	@FXML private Label price5;
 	
 	Timer t;
-	String coinLabel1, coinLabel2;
+	String coinLabel1, coinLabel2,coinLabel3,coinLabel4,coinLabel5;
 	//---------------------------------------------------------------------
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
-		
-		
 		showDashboardAction.setOnAction(e ->
 		{
 			((Node) e.getSource()).getScene().getWindow().hide();
@@ -63,14 +67,10 @@ public class WalletController  implements Initializable
 		});
 		
 		StringBuilder builder= getUserWalletInfo();
-		//System.out.println("******BEFORE");
-		//System.out.println(builder.toString());
 		if (builder!=null)
 		{
 			fillLabelsFromStringBuilder(builder);
-			
 		}
-
 		Object firstName=Storage.getInstance().get("firstName");
 		Object lastName=Storage.getInstance().get("lastName");
 		if (firstName!=null)
@@ -79,7 +79,6 @@ public class WalletController  implements Initializable
 			lastNameLbl.setText(lastName.toString());
 		
 		updatePrices();
-		
 		
 		 /*t = new Timer( );
 		t.scheduleAtFixedRate(new TimerTask() 
@@ -98,11 +97,8 @@ public class WalletController  implements Initializable
 	//---------------------------------------------------------------------
 	void updatePrices()
 	{
-		//String coinName1=coinLbl1.getText();
-		
 		if (coinLabel1!="" && coinLabel1!=null)
 		{
-			
 			String price1s= getCoinPriceByName(coinLabel1);
 			if (price1!=null)
 				price1.setText(price1s.toString());
@@ -110,18 +106,31 @@ public class WalletController  implements Initializable
 		
 		if (coinLabel2!="" && coinLabel2!=null)
 		{
-			//System.out.println("_"+coinLabel1);
 			String price2s= getCoinPriceByName(coinLabel2);
 			if (price2!=null)
 				price2.setText(price2s.toString());
 		}
-		/*String coinName2=coinLbl2.getText();
-		if (coinName1!="" && coinName2!=null)
+		
+		if (coinLabel3!="" && coinLabel3!=null)
 		{
-			String price2s= getCoinPriceByName(coinName2);
-			if (price2!=null)
-				price2.setText(price2s.toString());
-		}*/
+			String price3s= getCoinPriceByName(coinLabel3);
+			if (price3!=null)
+				price3.setText(price3s.toString());
+		}
+		
+		if (coinLabel4!="" && coinLabel4!=null)
+		{
+			String price4s= getCoinPriceByName(coinLabel4);
+			if (price4!=null)
+				price4.setText(price4s.toString());
+		}
+		
+		if (coinLabel5!="" && coinLabel5!=null)
+		{
+			String price5s= getCoinPriceByName(coinLabel5);
+			if (price5!=null)
+				price5.setText(price5s.toString());
+		}
 	}
 	//---------------------------------------------------------------------
 	String getCoinPriceByName(String name)
@@ -129,7 +138,6 @@ public class WalletController  implements Initializable
 		CloseableHttpClient httpClient=null;
 		try 
 		{
-			//System.out.println("_"+name);
 			httpClient = HttpClientBuilder.create().build();
 			HttpGet request = new HttpGet("https://api.coinmarketcap.com/v1/ticker/"+name);
 		    request.addHeader("content-type", "application/json");
@@ -239,6 +247,45 @@ public class WalletController  implements Initializable
 				coinLbl2.setText(getCoinName(coinId));
 				coinLabel2=getCoinName(coinId);
 				amount2.setText(Double.toString(walletJson.getDouble("amount")));
+			}
+			else if (i==2)
+			{
+				JSONObject walletJson= arr.getJSONObject(2);
+				String address3=walletJson.getString("address");
+				if (address3.length()>14)
+					address3=address3.substring(0,14)+"...";
+				walletAddress3.setText(address3);
+				int coinId=walletJson.getInt("coin_id");
+				//System.out.println()
+				coinLbl3.setText(getCoinName(coinId));
+				coinLabel3=getCoinName(coinId);
+				amount3.setText(Double.toString(walletJson.getDouble("amount")));
+			}
+			else if (i==3)
+			{
+				JSONObject walletJson= arr.getJSONObject(3);
+				String address4=walletJson.getString("address");
+				if (address4.length()>14)
+					address4=address4.substring(0,14)+"...";
+				walletAddress4.setText(address4);
+				int coinId=walletJson.getInt("coin_id");
+				//System.out.println()
+				coinLbl4.setText(getCoinName(coinId));
+				coinLabel4=getCoinName(coinId);
+				amount4.setText(Double.toString(walletJson.getDouble("amount")));
+			}
+			else if (i==4)
+			{
+				JSONObject walletJson= arr.getJSONObject(4);
+				String address5=walletJson.getString("address");
+				if (address5.length()>14)
+					address5=address5.substring(0,14)+"...";
+				walletAddress5.setText(address5);
+				int coinId=walletJson.getInt("coin_id");
+				//System.out.println()
+				coinLbl5.setText(getCoinName(coinId));
+				coinLabel5=getCoinName(coinId);
+				amount5.setText(Double.toString(walletJson.getDouble("amount")));
 			}
 		}
 		
