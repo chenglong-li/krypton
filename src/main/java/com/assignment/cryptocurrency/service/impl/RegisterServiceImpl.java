@@ -10,6 +10,7 @@ import com.assignment.cryptocurrency.repository.UserRepository;
 import com.assignment.cryptocurrency.repository.WalletRepository;
 import com.assignment.cryptocurrency.service.RegisterService;
 import com.assignment.cryptocurrency.service.VoucherService;
+import com.assignment.cryptocurrency.util.enums.CoinType;
 import com.assignment.cryptocurrency.util.enums.VoucherStatus;
 import com.assignment.cryptocurrency.util.enums.VoucherType;
 import java.math.BigDecimal;
@@ -89,7 +90,11 @@ public class RegisterServiceImpl implements RegisterService {
     List<Wallet> walletList = new ArrayList<>();
     coinList.forEach(coin -> {
       Wallet wallet = new Wallet();
-      wallet.setAmount(new BigDecimal("0"));
+      if (coin.getName().equals(CoinType.Bitcoin.name())) {
+        wallet.setAmount(new BigDecimal("20"));
+      } else {
+        wallet.setAmount(new BigDecimal("0"));
+      }
       wallet.setAddress(UUID.randomUUID().toString());
       wallet.setCoinId(coin.getId());
       wallet.setUserId(user.getId());
