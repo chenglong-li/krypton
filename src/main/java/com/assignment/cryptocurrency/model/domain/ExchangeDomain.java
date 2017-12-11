@@ -11,9 +11,9 @@ import java.math.BigDecimal;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class ExchangeDomain {
 
-  private CoinName originType;
+  private String originType;
 
-  private CoinName destType;
+  private String destType;
 
   private BigDecimal originAmount;
   private BigDecimal destAmount;
@@ -22,19 +22,19 @@ public class ExchangeDomain {
 
   private BigDecimal destPrice;
 
-  public CoinName getOriginType() {
+  public String getOriginType() {
     return originType;
   }
 
-  public void setOriginType(CoinName originType) {
+  public void setOriginType(String originType) {
     this.originType = originType;
   }
 
-  public CoinName getDestType() {
+  public String getDestType() {
     return destType;
   }
 
-  public void setDestType(CoinName destType) {
+  public void setDestType(String destType) {
     this.destType = destType;
   }
 

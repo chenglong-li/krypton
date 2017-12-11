@@ -42,9 +42,9 @@ public class ExchangeController {
     Exchange exchange = new Exchange();
     exchange.setOriginAmount(exchangeDomain.getOriginAmount());
     exchange.setOriginPrice(exchangeDomain.getOriginPrice());
-    exchange.setOriginType(CoinName.valueOf(exchangeDomain.getOriginType().name().toUpperCase()));
+    exchange.setOriginType(CoinName.valueOf(exchangeDomain.getOriginType().toUpperCase()));
     exchange.setDestPrice(exchangeDomain.getDestPrice());
-    exchange.setDestType(CoinName.valueOf(exchangeDomain.getDestType().name().toUpperCase()));
+    exchange.setDestType(CoinName.valueOf(exchangeDomain.getDestType().toUpperCase()));
     exchange.setDestAmount(exchangeDomain.getDestAmount());
     exchange.setUserId(id);
     exchange.setCreateTime(new Date());
