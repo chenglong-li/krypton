@@ -59,7 +59,7 @@ public class RegisterServiceImpl implements RegisterService {
     LOGGER.info("reward the inviter...");
     List<Coin> coinList = coinRepository.findAll();
     coinList.stream().forEach(c->{
-    	c.setName(c.getName().toUpperCase());
+   	c.setName(c.getName().toUpperCase());
     });
     Map<String, Integer> coinMap = coinList.stream()
         .collect(Collectors.toMap(Coin::getName, Coin::getId));
