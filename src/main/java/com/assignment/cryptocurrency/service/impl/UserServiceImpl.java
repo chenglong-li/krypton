@@ -31,13 +31,18 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
+  public User findOne(Integer id) {
+    return userRepository.findOne(id);
+  }
+
+  @Override
   public Page<User> findAll(User user, Pageable pageable) {
     Example<User> example = Example.of(user);
     return userRepository.findAll(example, pageable);
   }
 
   @Override
-  public User create(User user) {
+  public User createOrUpdate(User user) {
     return userRepository.save(user);
   }
 }

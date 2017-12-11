@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * Created by Jackie on 05/12/2017.
@@ -35,6 +36,7 @@ public class LoginController {
     return loginService.login(username, password);
   }
 
+  @ApiIgnore
   @RequestMapping(value = "/Login", params = {"type=admin"}, method = RequestMethod.GET)
   public Admin loginAsAdmin(@RequestParam String username, @RequestParam String password)
       throws NotFoundException {
