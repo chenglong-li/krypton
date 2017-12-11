@@ -7,6 +7,7 @@ import com.assignment.cryptocurrency.repository.CoinRepository;
 import com.assignment.cryptocurrency.repository.TransferRepository;
 import com.assignment.cryptocurrency.repository.WalletRepository;
 import com.assignment.cryptocurrency.service.TransferService;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,16 +35,15 @@ public class TransferServiceImpl implements TransferService {
   @Override
   public void transfer(Transfer transfer) {
     List<Coin> coinList = coinRepository.findAll();
-    coinList.stream().forEach(c->{
-      c.setName(c.getName().toUpperCase());
-    });
+    coinList.forEach(c-> c.setName(c.getName().toUpperCase()));
     Map<String, Integer> coinMap = coinList.stream()
         .collect(Collectors.toMap(Coin::getName, Coin::getId));
 
     Wallet originWallet = walletRepository.findByUserIdAndCoinId(
         transfer.getOriginUserId(),
         coinMap.get(transfer.getCryptonType()));
-    originWallet.setAmount(originWallet.getAmount().add(transfer.getCryptonAmount().negate()));
+    BigDecimal transferAmount = transfer.getCryptonAmount().negate();
+    originWallet.setAmount(originWallet.getAmount().add(transferAmount));
     Wallet destWallet = walletRepository.findByUserIdAndCoinId(
         transfer.getDestUserId(),
         coinMap.get(transfer.getCryptonType()));
