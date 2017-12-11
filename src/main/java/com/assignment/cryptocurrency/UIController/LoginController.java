@@ -177,7 +177,7 @@ public class LoginController implements Initializable {
 		}
 		 Stage stage = (Stage) registerAction.getScene().getWindow();
 	        stage.setTitle("Register new user");
-	        stage.setScene(new Scene(root, 600, 500));
+	        stage.setScene(new Scene(root, 600, 600));
 	        stage.show();
 	}
 	//----------------------------------------------------------------------
