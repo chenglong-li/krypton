@@ -100,15 +100,15 @@ public class WalletController  implements Initializable
 	{
 		//String coinName1=coinLbl1.getText();
 		
-		if (coinLabel1!="")//&& coinName1!=null)
+		if (coinLabel1!="" && coinLabel1!=null)
 		{
-			//System.out.println("_"+coinLabel1);
+			
 			String price1s= getCoinPriceByName(coinLabel1);
 			if (price1!=null)
 				price1.setText(price1s.toString());
 		}
 		
-		if (coinLabel2!="")//&& coinName1!=null)
+		if (coinLabel2!="" && coinLabel2!=null)
 		{
 			//System.out.println("_"+coinLabel1);
 			String price2s= getCoinPriceByName(coinLabel2);
@@ -267,8 +267,7 @@ public class WalletController  implements Initializable
 	StringBuilder getUserWalletInfo()
 	{
 		Object id=Storage.getInstance().get("userId");
-		System.out.println("****IDDDDD");
-		System.out.println(id.toString());
+		
 		if (id==null)
 			return null;
 		CloseableHttpClient httpClient=null;
