@@ -68,10 +68,11 @@ public class RegisterController implements Initializable
 			json.put("email", email.getText());
 			json.put("mobile", tel.getText());
 			String inviteCode=tfInviterCode.getText();
-			if (inviteCode!=null)
+			/*if (inviteCode!=null)
 				json.put("inviteCode", inviteCode);
+			*/
 			httpClient = HttpClientBuilder.create().build();
-		    HttpPost request = new HttpPost("http://localhost:8080/api/Users");
+		    HttpPost request = new HttpPost("http://localhost:8080/api/Users?inviteCode="+inviteCode);
 		    StringEntity params = new StringEntity(json.toString());
 		    
 		    request.addHeader("content-type", "application/json");

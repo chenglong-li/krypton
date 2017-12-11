@@ -12,7 +12,7 @@
    
       <Label layoutX="68.0" layoutY="22.0" text="MY WALLET">
          <font>
-            <Font size="34.0" />
+            <Font size="44.0" />
          </font>
       </Label>
        <Label layoutX="78.0" layoutY="90.0" text="First Name" fx:id="firstNameLbl">
@@ -40,23 +40,23 @@
       
       <Label layoutX="91.0" layoutY="161.0" text="Wallet Address">
          <font>
-            <Font size="28.0" />
+            <Font size="32.0" />
          </font>
       </Label>
       <Label layoutX="400" layoutY="161.0" text="Coin">
          <font>
-            <Font size="28.0" />
+            <Font size="32.0"  />
          </font>
       </Label>
       <Label layoutX="611.0" layoutY="161.0" text="Amount">
          <font>
-            <Font size="28.0" />
+            <Font size="32.0" />
          </font>
       </Label>
      
       <Label layoutX="880" layoutY="161.0" text="Price">
          <font>
-            <Font size="28.0" />
+            <Font size="32.0" />
          </font>
       </Label>
      

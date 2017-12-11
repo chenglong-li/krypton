@@ -56,17 +56,20 @@ public class RegisterServiceImpl implements RegisterService {
   @Override
   @Transactional(rollbackFor = Exception.class)
   public User register(User user, String inviteCode) throws NotFoundException {
-
     LOGGER.info("reward the inviter...");
     List<Coin> coinList = coinRepository.findAll();
+    coinList.stream().forEach(c->{
+    	c.setName(c.getName().toUpperCase());
+    });
     Map<String, Integer> coinMap = coinList.stream()
         .collect(Collectors.toMap(Coin::getName, Coin::getId));
 
     Voucher voucher;
     VoucherService voucherService = voucherServiceFactory.getInstance(VoucherType.INVITE);
-    if (inviteCode!=null && !inviteCode.isEmpty()) {
+    if (inviteCode!=null && !inviteCode.isEmpty()) 
+    {
       voucher = voucherService.verify(inviteCode);
-      if (voucher == null) {
+     if (voucher == null) {
         throw new NotFoundException("The invite code does not exist");
       }
       User inviter = userRepository.findOne(voucher.getUserId());
