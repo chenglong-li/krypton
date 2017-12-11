@@ -170,6 +170,8 @@ public class WalletController  implements Initializable
 		JSONObject jsonObj = new JSONObject(builder.toString());
 		JSONArray arr = jsonObj.getJSONObject("_embedded").getJSONArray("wallet_list");
 		System.out.println(jsonObj.toString());
+		
+		
 		for (int i = 0; i < arr.length(); i++) 
 		{
 			

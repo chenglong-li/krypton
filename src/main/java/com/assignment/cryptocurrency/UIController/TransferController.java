@@ -95,7 +95,7 @@ public class TransferController implements Initializable
 		json.put("dest_username", usernameTxt.getText());
 		
 		httpClient = HttpClientBuilder.create().build();
-		String url="http://localhost:8080/api/Users/"+userId+"/Transfer";
+		String url="http://localhost:8080/api/Users/"+userId+"/Transfers";
 	    HttpPost request = new HttpPost(url);
 	    StringEntity params;
 		try 
@@ -135,7 +135,7 @@ public class TransferController implements Initializable
 		}
 		 Stage stage = new Stage();    
         stage.setTitle("Back to dashboard");
-        stage.setScene(new Scene(root, 600, 475));
+        stage.setScene(new Scene(root, 800,500));
         stage.show();
 	}
 	//---------------------------------------------------------------------
