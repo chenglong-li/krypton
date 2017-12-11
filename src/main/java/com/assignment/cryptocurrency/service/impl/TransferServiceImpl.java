@@ -42,6 +42,9 @@ public class TransferServiceImpl implements TransferService {
     Wallet originWallet = walletRepository.findByUserIdAndCoinId(
         transfer.getOriginUserId(),
         coinMap.get(transfer.getCryptonType()));
+    if (originWallet.getAmount().compareTo(transfer.getCryptonAmount()) < 0) {
+      throw new IllegalArgumentException("The user doesn't have enough " + transfer.getCryptonType());
+    }
     BigDecimal transferAmount = transfer.getCryptonAmount().negate();
     originWallet.setAmount(originWallet.getAmount().add(transferAmount));
     Wallet destWallet = walletRepository.findByUserIdAndCoinId(
