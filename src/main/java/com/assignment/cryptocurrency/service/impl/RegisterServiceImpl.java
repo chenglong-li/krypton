@@ -72,7 +72,7 @@ public class RegisterServiceImpl implements RegisterService {
       User inviter = userRepository.findOne(voucher.getUserId());
       Wallet bitcoinWallet = walletRepository.findByUserIdAndCoinId(
           inviter.getId(),
-          coinMap.get(CoinType.Bitcoin.name()));
+          coinMap.get(CoinType.BITCOIN.name()));
       bitcoinWallet.setAmount(bitcoinWallet.getAmount().add(new BigDecimal("1")));
       walletRepository.save(bitcoinWallet);
       LOGGER.info("rewarded {} 1 bitcoin", inviter.getFirstName());
@@ -96,7 +96,7 @@ public class RegisterServiceImpl implements RegisterService {
     List<Wallet> walletList = new ArrayList<>();
     coinList.forEach(coin -> {
       Wallet wallet = new Wallet();
-      if (coin.getName().equals(CoinType.Bitcoin.name())) {
+      if (coin.getName().equalsIgnoreCase(CoinType.BITCOIN.name())) {
         wallet.setAmount(new BigDecimal("20"));
       } else {
         wallet.setAmount(new BigDecimal("0"));

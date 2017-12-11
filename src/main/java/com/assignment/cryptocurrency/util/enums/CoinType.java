@@ -1,7 +1,7 @@
 package com.assignment.cryptocurrency.util.enums;
 
 public enum CoinType {
-  Bitcoin(0), Ethereum(1), Litecoin(2), Iota(3), Neo(4);
+  BITCOIN(0), ETHEREUM(1), LITECOIN(2), IOTA(3), NEO(4);
   private final Integer coinType;
 
   CoinType(Integer coinType) {
