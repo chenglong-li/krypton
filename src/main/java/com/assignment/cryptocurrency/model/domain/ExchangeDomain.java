@@ -16,6 +16,7 @@ public class ExchangeDomain {
   private CoinType destType;
 
   private BigDecimal originAmount;
+  private BigDecimal destAmount;
 
   private BigDecimal originPrice;
 
@@ -61,4 +62,11 @@ public class ExchangeDomain {
     this.destPrice = destPrice;
   }
 
+  public BigDecimal getDestAmount() {
+    return destAmount;
+  }
+
+  public void setDestAmount(BigDecimal destAmount) {
+    this.destAmount = destAmount;
+  }
 }

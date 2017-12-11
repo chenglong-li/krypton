@@ -44,6 +44,7 @@ public class ExchangeController {
     exchange.setOriginType(exchangeDomain.getOriginType());
     exchange.setDestPrice(exchangeDomain.getDestPrice());
     exchange.setDestType(exchangeDomain.getDestType());
+    exchange.setDestAmount(exchangeDomain.getDestAmount());
     exchange.setUserId(id);
     exchange.setCreateTime(new Date());
 

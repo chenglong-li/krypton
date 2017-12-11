@@ -9,8 +9,6 @@ import com.assignment.cryptocurrency.repository.ExchangeRepository;
 import com.assignment.cryptocurrency.repository.UserRepository;
 import com.assignment.cryptocurrency.repository.WalletRepository;
 import com.assignment.cryptocurrency.service.ExchangeService;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -48,12 +46,12 @@ public class ExchangeServiceImpl implements ExchangeService {
     User user = new User();
     user.setId(exchange.getUserId());
     List<Wallet> walletList = walletRepository.findByUserId(exchange.getUserId());
-    BigDecimal originPrice = exchange.getOriginPrice();
-    BigDecimal originAmount = exchange.getOriginAmount();
-    BigDecimal destPrice = exchange.getDestPrice();
-    BigDecimal destAmount = originPrice.multiply(originAmount)
-        .divide(destPrice, 0, RoundingMode.HALF_UP);
-    exchange.setDestAmount(destAmount);
+//    BigDecimal originPrice = exchange.getOriginPrice();
+//    BigDecimal originAmount = exchange.getOriginAmount();
+//    BigDecimal destPrice = exchange.getDestPrice();
+//    BigDecimal destAmount = originPrice.multiply(originAmount)
+//        .divide(destPrice, 0, RoundingMode.HALF_UP);
+//    exchange.setDestAmount(destAmount);
 
     List<Coin> coinList = coinRepository.findAll();
     Map<Integer, String> coinMap = coinList.stream()
@@ -62,11 +60,11 @@ public class ExchangeServiceImpl implements ExchangeService {
     List<Wallet> saveWalletList = new ArrayList<>();
     walletList.forEach(w -> {
       String coinName = coinMap.get(w.getCoinId());
-      if (exchange.getOriginType().name().equals(coinName)) {
+      if (exchange.getOriginType().name().equalsIgnoreCase(coinName)) {
         w.setAmount(w.getAmount().add(exchange.getOriginAmount().negate()));
         saveWalletList.add(w);
       }
-      if (exchange.getDestType().name().equals(coinName)) {
+      if (exchange.getDestType().name().equalsIgnoreCase(coinName)) {
         w.setAmount(w.getAmount().add(exchange.getDestAmount()));
         saveWalletList.add(w);
       }
