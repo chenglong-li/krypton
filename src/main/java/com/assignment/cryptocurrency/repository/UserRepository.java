@@ -15,11 +15,11 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @RepositoryRestResource(collectionResourceRel = "user_list", path = "Users", excerptProjection = UserView.class)
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-  User findByUsernameEquals(String username);
+  User findUserByUsername(String username);
 
-  User findByUsernameAndPasswordEquals(@Param("username") String username, @Param("password") String password);
+  User findUserByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
-  List<User> findByUsernameContaining(@Param("username") String username);
+  List<User> findUsersByUsernameContaining(@Param("username") String username);
 
   List<User> findUsersByStatus(@Param("status") String status);
 }

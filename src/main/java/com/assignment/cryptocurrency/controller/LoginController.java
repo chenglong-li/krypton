@@ -29,7 +29,7 @@ public class LoginController {
     this.loginService = loginService;
   }
 
-  @RequestMapping(value = "/Login", params = {"type=user"}, method = RequestMethod.GET)
+  @RequestMapping(value = "/Login", method = RequestMethod.GET)
   public User login(@RequestParam String username, @RequestParam String password)
       throws NotFoundException {
     return loginService.login(username, password);

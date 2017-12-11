@@ -28,7 +28,7 @@ public class LoginServiceImpl implements LoginService {
 
   @Override
   public User login(String username, String password) throws NotFoundException {
-    User user = userRepository.findByUsernameAndPasswordEquals(username, password);
+    User user = userRepository.findUserByUsernameAndPassword(username, password);
     if (user == null) {
       throw new NotFoundException("User not found");
     }

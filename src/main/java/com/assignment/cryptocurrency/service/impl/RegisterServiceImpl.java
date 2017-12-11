@@ -77,7 +77,7 @@ public class RegisterServiceImpl implements RegisterService {
       walletRepository.save(bitcoinWallet);
       LOGGER.info("rewarded {} 1 bitcoin", inviter.getFirstName());
     }
-    User existedUser = userRepository.findByUsernameEquals(user.getUsername());
+    User existedUser = userRepository.findUserByUsername(user.getUsername());
     if (existedUser != null) {
       throw new IllegalArgumentException("The user username is already existed!");
     }
