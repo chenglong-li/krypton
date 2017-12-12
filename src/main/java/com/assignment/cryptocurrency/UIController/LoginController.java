@@ -26,14 +26,10 @@ import org.json.JSONObject;
 
 public class LoginController implements Initializable {
 
-  @FXML
-  private Button registerAction;
-  @FXML
-  private Button loginAction;
-  @FXML
-  private TextField username;
-  @FXML
-  private TextField password;
+  @FXML  private Button registerAction;
+  @FXML  private Button loginAction;
+  @FXML  private TextField username;
+  @FXML  private TextField password;
 
   //----------------------------------------------------------------------
   @Override
@@ -52,7 +48,7 @@ public class LoginController implements Initializable {
         Object status = jsonObj.get("status");
         Storage storage = Storage.getInstance();
         storage.save("userId", id);
-        
+        storage.save("userStatus",jsonObj.getString("status"));
         if (firstName != null) {
           storage.save("firstName", firstName.toString());
         }
@@ -83,8 +79,8 @@ public class LoginController implements Initializable {
     try 
     {
       httpClient = HttpClientBuilder.create().build();
-      //username.setText("username6489");
-      //password.setText("password6489");
+      username.setText("username2323");
+      password.setText("password2323");
       String getQuery ="http://localhost:8080/api/Users/Login?username=" + username.getText() + "&password="+ password.getText();
       HttpGet request = new HttpGet(getQuery);
       request.addHeader("content-type", "application/json");

@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,47 +21,62 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.JSONObject;
 
 //import java.event
-
-public class DashboardController implements Initializable {
-
-  @FXML
-  private Label firstNameLbl;
-  @FXML
-  private Label lastNameLbl;
-
+//-----------------------------------------------------------------------------------------
+public class DashboardController implements Initializable 
+{
+  @FXML  private Label firstNameLbl;
+  @FXML  private Label lastNameLbl;
+  @FXML  private Label statusLbl;
+//-----------------------------------------------------------------------------------------
+  @FXML  private Button showInviteCode;
+  @FXML  private Button getVerifiedBtn;
   
-  @FXML
-  private Button showExchangeAction1;
-  
-  //@FXML  private Button showViewAllOffersAction;
-  //@FXML  private Button showPutNewOfferAction;
-  //@FXML  private Button showViewMyOffersAction;
-  //@FXML  private Button showAcceptOfferAction;
   @FXML  private Button showExchangeAction;
   @FXML  private Button showTransferAction;
-  //@FXML  private Button showMakeOrderAction;
-  //@FXML  private Button showViewAllOrdersAction;
-  //@FXML  private Button showViewMyOrdersAction;
   @FXML  private Button showWalletAction;
   @FXML  private Button signOutAction;
   @FXML  private Label myInviteCode;
-
+//-----------------------------------------------------------------------------------------
   @Override
-  public void initialize(URL arg0, ResourceBundle arg1) {
+  public void initialize(URL arg0, ResourceBundle arg1) 
+  {
     Object firstName = Storage.getInstance().get("firstName");
     Object lastName = Storage.getInstance().get("lastName");
-    if (firstName != null) {
+    Object status = Storage.getInstance().get("userStatus");
+    if (firstName != null) 
       firstNameLbl.setText(firstName.toString());
-    }
-    if (lastName != null) {
+    if (lastName != null) 
       lastNameLbl.setText(lastName.toString());
+    if (status != null)
+    {
+      statusLbl.setText(status.toString());
+      if (!status.toString().equalsIgnoreCase("new"))
+    	  getVerifiedBtn.setVisible(false);
+      if (status.toString().equalsIgnoreCase("new") || status.toString().equalsIgnoreCase("waiting"))
+      {
+    	  showExchangeAction.setVisible(false);
+    	  showTransferAction.setVisible(false);
+      }
     }
-
-    showExchangeAction1.setOnAction(e ->
+    
+    getVerifiedBtn.setOnAction(e ->
+    {
+    	if (getVerified(Storage.getInstance().get("userId").toString()))
+    	{
+    		statusLbl.setText("WAITING");
+    		getVerifiedBtn.setVisible(false);
+    	}
+    });
+    
+    showInviteCode.setOnAction(e ->
     {
       //((Node) e.getSource()).getScene().getWindow().hide();
     	try {
@@ -140,8 +156,30 @@ public class DashboardController implements Initializable {
   }
 */
   }
+//-----------------------------------------------------------------------------------------
+  @FXML  public boolean getVerified(String userId)// throws IOException 
+  {
+		CloseableHttpClient httpClient=null;
+		try 
+		{
+			String url="http://localhost:8080/api/Users/"+userId+"?status=waiting";
+			System.out.println(url);
+			httpClient = HttpClientBuilder.create().build();
+		    HttpPut request = new HttpPut(url);
+		    HttpResponse  response = httpClient.execute(request);
+		    if(response.getStatusLine().getStatusCode()==200)
+		    {
+		    	return true;
+		    }
+		} 
+		catch (Exception ex) 
+		{
+		} 
+		return false;
+  }
   //-----------------------------------------------------------------------------------------
-  void showLoginWindow() {
+  void showLoginWindow() 
+  {
     Parent root = null;
     try {
       root = FXMLLoader.load(getClass().getResource("../UIView/login.fxml"));
@@ -154,10 +192,9 @@ public class DashboardController implements Initializable {
     stage.show();
   }
 
-  ;
-
   //-----------------------------------------------------------------------------------------
-  void showWalletWindow() {
+  void showWalletWindow() 
+  {
     Parent root = null;
     try {
       root = FXMLLoader.load(getClass().getResource("../UIView/wallet.fxml"));
@@ -170,8 +207,7 @@ public class DashboardController implements Initializable {
     stage.show();
   }
 
-  ;
-
+//-----------------------------------------------------------------------------------------
   void showExchange() {
     Parent root = null;
     try {
@@ -185,7 +221,7 @@ public class DashboardController implements Initializable {
     stage.setScene(new Scene(root, 600, 675));
     stage.show();
   }
-
+//-----------------------------------------------------------------------------------------
   void showTransfer() {
     Parent root = null;
     try {
@@ -199,7 +235,7 @@ public class DashboardController implements Initializable {
     stage.setScene(new Scene(root, 600, 675));
     stage.show();
   }
-
+//-----------------------------------------------------------------------------------------
   void showViewAllOrders() {
     Parent root = null;
     try {
@@ -213,7 +249,7 @@ public class DashboardController implements Initializable {
     stage.setScene(new Scene(root, 600, 675));
     stage.show();
   }
-
+//-----------------------------------------------------------------------------------------
   void showMakeOrder() {
     Parent root = null;
     try {
@@ -227,7 +263,7 @@ public class DashboardController implements Initializable {
     stage.setScene(new Scene(root, 600, 675));
     stage.show();
   }
-
+//-----------------------------------------------------------------------------------------
   void showAcceptOffer() {
     Parent root = null;
     try {
@@ -241,7 +277,7 @@ public class DashboardController implements Initializable {
     stage.setScene(new Scene(root, 600, 675));
     stage.show();
   }
-
+//-----------------------------------------------------------------------------------------
   void showViewMyOffers() {
     Parent root = null;
     try {
@@ -255,7 +291,7 @@ public class DashboardController implements Initializable {
     stage.setScene(new Scene(root, 600, 675));
     stage.show();
   }
-
+//-----------------------------------------------------------------------------------------
   void showPutNewOffer() {
     Parent root = null;
     try {
@@ -269,7 +305,7 @@ public class DashboardController implements Initializable {
     stage.setScene(new Scene(root, 600, 675));
     stage.show();
   }
-
+//-----------------------------------------------------------------------------------------
   void showViewAllOffers() {
     Parent root = null;
     try {
@@ -283,7 +319,7 @@ public class DashboardController implements Initializable {
     stage.setScene(new Scene(root, 600, 675));
     stage.show();
   }
-
+//-----------------------------------------------------------------------------------------
   void showViewMyOrders() {
     Parent root = null;
     try {
@@ -297,9 +333,8 @@ public class DashboardController implements Initializable {
     stage.setScene(new Scene(root, 600, 675));
     stage.show();
   }
-
-  @FXML
-  public String showMyInviteCode() throws IOException {
+//-----------------------------------------------------------------------------------------
+  @FXML  public String showMyInviteCode() throws IOException {
     Storage storInstance = Storage.getInstance();
     String userId = (String) storInstance.get("userId");
 
@@ -327,5 +362,5 @@ public class DashboardController implements Initializable {
     httpClient.close();
     return resultMap.get("code").toString();
   }
-
+//-----------------------------------------------------------------------------------------
 }

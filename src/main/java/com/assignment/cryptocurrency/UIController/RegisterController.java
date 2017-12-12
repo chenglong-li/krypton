@@ -47,7 +47,6 @@ public class RegisterController implements Initializable
 		    //hideCurrentWindow();
 		    showLoginWindow();
 		});
-		    
 	}
 	//-----------------------------------------------------------------------------------------
 	void sendRegisterFormDataToServer(ActionEvent e)
@@ -55,11 +54,11 @@ public class RegisterController implements Initializable
 		CloseableHttpClient httpClient=null;
 		try 
 		{
-			//String randString=String.valueOf(new Random().nextInt(8000));
-			//username.setText("username"+randString);
-			//password.setText("password"+randString);
-			//email.setText("a"+randString+"@b"+randString+".com");
-			//tel.setText("555-"+randString);
+			String randString=String.valueOf(new Random().nextInt(8000));
+			username.setText("username"+randString);
+			password.setText("password"+randString);
+			email.setText("a"+randString+"@b"+randString+".com");
+			tel.setText("555-"+randString);
 			JSONObject json = new JSONObject();
 			json.put("username", username.getText());
 			json.put("password", password.getText());

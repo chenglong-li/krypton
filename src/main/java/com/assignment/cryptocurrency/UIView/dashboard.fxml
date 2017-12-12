@@ -7,32 +7,25 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@MainStyle.css" fx:controller="com.assignment.cryptocurrency.UIController.DashboardController">
    <children>
-      
-      <Pane layoutX="14.0" layoutY="55.0" prefHeight="518.0" prefWidth="207.0">
-         <children>
-         <Label layoutX="68.0" layoutY="12.0" text="MY DASHBOARD">
-         <font>
-            <Font size="34.0" />
-         </font>
-      </Label>
-       <Label fx:id="firstNameLbl" layoutX="78.0" layoutY="60.0" text="First Name">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="lastNameLbl" layoutX="361.0" layoutY="60.0" text="Last Name">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      		<Button fx:id="showWalletAction" layoutX="440.0" layoutY="280" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="my wallet" />
-
-            <Button fx:id="showExchangeAction" layoutX="280" layoutY="280" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="exchange" />
-            <Button fx:id="showTransferAction" layoutX="280.0" layoutY="235" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="transfer" />
-            <Button fx:id="signOutAction" layoutX="440.0" layoutY="235" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Sign out" />
-         </children>
-      </Pane>
-      <Button fx:id="showExchangeAction1" layoutX="54.0" layoutY="193.0" mnemonicParsing="false" onAction="#showMyInviteCode" prefHeight="31.0" prefWidth="128.0" text="My Invite Code" />
-      <Label fx:id="myInviteCode" layoutX="211.0" layoutY="193.0" text="" />
+          <Label layoutX="68.0" layoutY="12.0" text="MY DASHBOARD">
+         	<Font size="34.0" />
+      	  </Label>
+          
+          <Label layoutX="78" layoutY="70" text="First name" />
+          <Label layoutX="78" layoutY="110" text="Last name" />
+          <Label layoutX="78" layoutY="150" text="Status" />
+          <Label fx:id="firstNameLbl" layoutX="258" layoutY="70" text="" />
+          <Label fx:id="lastNameLbl" layoutX="258" layoutY="110" text="" />
+          <Label fx:id="statusLbl" layoutX="258" layoutY="150" text="" />
+     	  <Button fx:id="showInviteCode" layoutX="54.0" layoutY="190.0" mnemonicParsing="false" onAction="#showMyInviteCode" prefHeight="31.0" prefWidth="168.0" text="Show my invite code" />
+     	  <Label fx:id="myInviteCode" layoutX="258.0" layoutY="190" text="" />
+    	  <Button fx:id="getVerifiedBtn" layoutX="54.0" layoutY="230.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="168.0" text="Get verified" />
+    	 
+    	 
+    	  <Button fx:id="showTransferAction" layoutX="280.0" layoutY="350" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="transfer" />
+          <Button fx:id="signOutAction" layoutX="440.0" layoutY="350" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Sign out" />
+    	  <Button fx:id="showWalletAction" layoutX="440.0" layoutY="395" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="my wallet" />
+          <Button fx:id="showExchangeAction" layoutX="280" layoutY="395" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="exchange" />
    </children>
 </Pane>
+      
