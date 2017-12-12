@@ -4,7 +4,9 @@ import com.assignment.cryptocurrency.general.Model;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -19,6 +21,7 @@ public class Voucher extends Model {
   private String type;
   private Date startDate;
   private Date endDate;
+  @Column(name = "user_id")
   private Integer userId;
   private Integer limits;
   private String status;

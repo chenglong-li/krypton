@@ -106,7 +106,7 @@ public class RegisterServiceImpl implements RegisterService {
       }
       wallet.setAddress(UUID.randomUUID().toString());
       wallet.setCoinId(coin.getId());
-      wallet.setUserId(user.getId());
+//      wallet.setUserId(user.getId());
       walletList.add(wallet);
     });
     walletRepository.save(walletList);

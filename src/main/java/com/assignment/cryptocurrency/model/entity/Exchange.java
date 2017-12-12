@@ -22,6 +22,7 @@ public class Exchange extends Model {
   private BigDecimal destAmount;
   private BigDecimal originPrice;
   private BigDecimal destPrice;
+  @Column(name = "user_id")
   private Integer userId;
   private Date createTime;
 

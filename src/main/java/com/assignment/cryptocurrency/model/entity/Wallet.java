@@ -7,6 +7,9 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -20,7 +23,12 @@ public class Wallet extends Model {
   private Integer coinId;
   private String address;
   private BigDecimal amount;
+  @Column(name = "user_id")
   private Integer userId;
+//  @ManyToOne(fetch = FetchType.LAZY)
+//  @JoinColumn(name = "user_id")
+//  @ManyToOne(fetch = FetchType.LAZY)
+//  private User user;
 
   @Basic
   @Column(name = "coin_id")
@@ -59,4 +67,13 @@ public class Wallet extends Model {
   public void setUserId(Integer userId) {
     this.userId = userId;
   }
+
+
+//  public User getUser() {
+//    return user;
+//  }
+//
+//  public void setUser(User user) {
+//    this.user = user;
+//  }
 }

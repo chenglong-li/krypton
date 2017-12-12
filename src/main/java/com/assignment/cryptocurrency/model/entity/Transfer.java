@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Transfer extends Model {
 
+  @Column(name = "origin_user_id")
   private Integer originUserId;
   private Integer destUserId;
   private String cryptonType;
