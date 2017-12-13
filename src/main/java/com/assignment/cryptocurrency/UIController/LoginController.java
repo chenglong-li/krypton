@@ -145,8 +145,8 @@ public class LoginController implements Initializable {
     try 
     {
       httpClient = HttpClientBuilder.create().build();
-      username.setText("username2323");
-      password.setText("password2323");
+//      username.setText("username2323");
+//      password.setText("password2323");
       String url="http://localhost:8080/api/Users/Login?username=" + username.getText() + "&password="+ password.getText();
       String getQuery =url; 
       HttpGet request = new HttpGet(getQuery);

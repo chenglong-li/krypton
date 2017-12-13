@@ -55,10 +55,10 @@ public class RegisterController implements Initializable
 		try 
 		{
 			String randString=String.valueOf(new Random().nextInt(8000));
-			username.setText("username"+randString);
-			password.setText("password"+randString);
-			email.setText("a"+randString+"@b"+randString+".com");
-			tel.setText("555-"+randString);
+//			username.setText("username"+randString);
+//			password.setText("password"+randString);
+//			email.setText("a"+randString+"@b"+randString+".com");
+//			tel.setText("555-"+randString);
 			JSONObject json = new JSONObject();
 			json.put("username", username.getText());
 			json.put("password", password.getText());
