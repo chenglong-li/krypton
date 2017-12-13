@@ -48,6 +48,6 @@
          </font>
       </Label>
       <TextField fx:id="tfInviterCode" layoutX="222.0" layoutY="405.0" prefHeight="40.0" prefWidth="289.0" />
-      <Text fx:id="confirmPwdText" layoutX="222.0" layoutY="480.0" />
+      <Text fx:id="registerNoticeText" layoutX="222.0" layoutY="480.0" />
    </children>
 </Pane>

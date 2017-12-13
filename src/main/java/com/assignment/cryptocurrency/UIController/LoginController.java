@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -41,6 +42,7 @@ public class LoginController implements Initializable {
   @FXML  private Button loginAsAdminAction;
   @FXML  private TextField username;
   @FXML  private PasswordField password;
+  @FXML  private Text loginNoticeText;
 
   //----------------------------------------------------------------------
   @Override
@@ -74,7 +76,10 @@ public class LoginController implements Initializable {
           storage.save("status", status.toString());
         }
       }
-      showDashboardWindow();
+
+      if (loginNoticeText.getText().isEmpty()) {
+        showDashboardWindow();
+      }
 
     });
     
@@ -136,6 +141,7 @@ public class LoginController implements Initializable {
     }
     catch (Exception ex) 
     {
+      loginNoticeText.setText(ex.getMessage());
     } 
     return null;
   }
@@ -171,9 +177,10 @@ public class LoginController implements Initializable {
         {
         } 
       } else {
-
+        loginNoticeText.setText("Something went wrong");
       }
     } catch (Exception ex) {
+      loginNoticeText.setText(ex.getMessage());
     } finally {
       try {
         httpClient.close();
