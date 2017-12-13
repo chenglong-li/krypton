@@ -166,16 +166,10 @@ public class WalletController  implements Initializable
 	//---------------------------------------------------------------------
 	void fillLabelsFromStringBuilder(StringBuilder builder)
 	{
-		System.out.println("******************FILLING...");
 		JSONObject jsonObj = new JSONObject(builder.toString());
 		JSONArray arr = jsonObj.getJSONObject("_embedded").getJSONArray("wallet_list");
-		System.out.println(jsonObj.toString());
-		
-		
 		for (int i = 0; i < arr.length(); i++) 
 		{
-			
-			//scene.lookup("#history");
 			if (i==0)
 			{
 				JSONObject walletJson= arr.getJSONObject(0);

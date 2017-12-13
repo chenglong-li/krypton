@@ -10,7 +10,7 @@
    <Button layoutX="829.0" layoutY="560.0" mnemonicParsing="false" text="Back to dashborad"  fx:id="showDashboardAction"  />
    
    
-      <Label layoutX="68.0" layoutY="22.0" text="MY WALLET">
+      <Label fx:id="dd1" layoutX="68.0" layoutY="22.0" text="MY WALLET">
          <font>
             <Font size="44.0" />
          </font>
