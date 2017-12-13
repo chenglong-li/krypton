@@ -5,6 +5,7 @@ import com.assignment.cryptocurrency.model.entity.User;
 import com.assignment.cryptocurrency.repository.AdminRepository;
 import com.assignment.cryptocurrency.repository.UserRepository;
 import com.assignment.cryptocurrency.service.LoginService;
+import com.assignment.cryptocurrency.util.enums.UserStatus;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,9 @@ public class LoginServiceImpl implements LoginService {
     User user = userRepository.findUserByUsernameAndPassword(username, password);
     if (user == null) {
       throw new NotFoundException("User not found");
+    }
+    if (UserStatus.BLOCKED.name().equalsIgnoreCase(user.getStatus())) {
+      throw new IllegalArgumentException("The user is blocked");
     }
     return user;
   }
