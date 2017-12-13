@@ -44,7 +44,8 @@ public class ExchangeController implements Initializable
 	
 	@FXML private Label originPriceLbl;
 	@FXML private Label destPriceLbl;
-	
+	@FXML private Text exchangeNoticeText;
+
 	
 	@FXML private Label destAmountLbl;
 
@@ -85,10 +86,11 @@ public class ExchangeController implements Initializable
 		{
 			if (originAmountTxt.getText().length()>0 && destAmountLbl.getText().length()>0)
 			{
-				if(sendFormDataToServer(Storage.getInstance().get("userId").toString()))
-				{
+				if (sendFormDataToServer(Storage.getInstance().get("userId").toString())) {
 					((Node) e.getSource()).getScene().getWindow().hide();
 					showDashboard();
+				} else {
+					exchangeNoticeText.setText("Something went wrong");
 				}
 			}
 		});
@@ -131,6 +133,7 @@ public class ExchangeController implements Initializable
 		}
 		catch (Exception ex) 
 		{
+			exchangeNoticeText.setText(ex.getMessage());
 		} 
 		return false;
 	    

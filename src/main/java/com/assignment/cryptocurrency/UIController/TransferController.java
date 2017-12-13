@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.scene.text.Text;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -39,7 +40,8 @@ public class TransferController implements Initializable
 	
 	@FXML private Label priceLbl;
 	@FXML private Label totalPriceLbl;
-	
+	@FXML private Text transferNoticeText;
+
 	double price,totalPrice;
 	//---------------------------------------------------------------------
 	@Override
@@ -53,9 +55,9 @@ public class TransferController implements Initializable
 		
 		showPriceBtn.setOnAction(e ->		
 		{
-			usernameTxt.setText("username7163");
-			coinNameTxt.setText("bitcoin");
-			amountTxt.setText("2");
+//			usernameTxt.setText("username7163");
+//			coinNameTxt.setText("bitcoin");
+//			amountTxt.setText("2");
 			if (coinNameTxt.getText().length()>0)
 			{
 				if (coinNameTxt.getText().length()>0)
@@ -73,10 +75,11 @@ public class TransferController implements Initializable
 		
 		transferBtn.setOnAction(e ->
 		{
-			if(sentAmountToUser())
-			{
+			if (sentAmountToUser()) {
 				((Node) e.getSource()).getScene().getWindow().hide();
 				showDashboard();
+			} else {
+				transferNoticeText.setText("Something went wrong");
 			}
 		   
 		});
@@ -116,6 +119,7 @@ public class TransferController implements Initializable
 		}
 		catch (Exception ex) 
 		{
+			transferNoticeText.setText(ex.getMessage());
 		} 
 		return false;
 	    
