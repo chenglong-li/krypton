@@ -5,6 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.layout.*;
+
+
 public class ProfileView extends Application 
 {
 
@@ -15,6 +18,7 @@ public class ProfileView extends Application
         stage.setTitle("Profile");
         stage.setScene(new Scene(root, 600, 700));
         stage.show();
+        
     }
     
     public static void main(String[] args) 
