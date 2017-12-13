@@ -15,6 +15,7 @@ import javafx.fxml.*;
 //import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.*;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.Parent;
@@ -39,7 +40,7 @@ public class LoginController implements Initializable {
   @FXML  private Button loginAction;
   @FXML  private Button loginAsAdminAction;
   @FXML  private TextField username;
-  @FXML  private TextField password;
+  @FXML  private PasswordField password;
 
   //----------------------------------------------------------------------
   @Override

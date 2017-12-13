@@ -22,7 +22,9 @@ public class RegisterController implements Initializable
 	@FXML private Button registerNewUserAction;
 	@FXML private Button loginAction;
 	@FXML private TextField username;
-	@FXML private TextField password;
+	@FXML private PasswordField password;
+	@FXML private PasswordField passwordConfirm;
+	@FXML private Text confirmPwdText;
 	@FXML private TextField email;
 	@FXML private TextField tel;
 	//@FXML private TextField username;
@@ -36,9 +38,13 @@ public class RegisterController implements Initializable
 	{
 		registerNewUserAction.setOnAction(e ->
 		{
-			sendRegisterFormDataToServer(e);
-		    hideCurrentWindow();
-		    //showLoginWindow();
+			if (!password.getText().equals(passwordConfirm.getText())) {
+				confirmPwdText.setText("Please confirm your password");
+			} else {
+				sendRegisterFormDataToServer(e);
+				hideCurrentWindow();
+				//showLoginWindow();
+			}
 		});
 		
 		loginAction.setOnAction(e ->
