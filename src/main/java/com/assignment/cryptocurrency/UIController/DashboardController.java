@@ -2,17 +2,18 @@ package com.assignment.cryptocurrency.UIController;
 
 import com.assignment.cryptocurrency.util.Storage;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.text.*;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,12 +22,10 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.json.JSONObject;
+import javafx.scene.control.*;
 
 //import java.event
 //-----------------------------------------------------------------------------------------
@@ -35,8 +34,10 @@ public class DashboardController implements Initializable
   @FXML  private Label firstNameLbl;
   @FXML  private Label lastNameLbl;
   @FXML  private Label statusLbl;
+  @FXML  private TextField emailTxt;
+  
 //-----------------------------------------------------------------------------------------
-  @FXML  private Button showInviteCode;
+  @FXML  private Button inviteUserBtn;
   @FXML  private Button getVerifiedBtn;
   
   @FXML  private Button showExchangeAction;
@@ -67,6 +68,13 @@ public class DashboardController implements Initializable
       }
     }
     
+    try {
+		myInviteCode.setText(showMyInviteCode());
+	} catch (IOException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+    
     getVerifiedBtn.setOnAction(e ->
     {
     	if (getVerified(Storage.getInstance().get("userId").toString()))
@@ -76,15 +84,11 @@ public class DashboardController implements Initializable
     	}
     });
     
-    showInviteCode.setOnAction(e ->
+    inviteUserBtn.setOnAction(e ->
     {
-      //((Node) e.getSource()).getScene().getWindow().hide();
-    	try {
-			myInviteCode.setText(showMyInviteCode());
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+    	String inviteCode=myInviteCode.getText();
+    	if (inviteUser(inviteCode))
+    		emailTxt.setText("");
     });
     
     
@@ -100,36 +104,6 @@ public class DashboardController implements Initializable
       showWalletWindow();
     });
 
-    /*showViewAllOffersAction.setOnAction(e ->
-    {
-      ((Node) e.getSource()).getScene().getWindow().hide();
-      showViewAllOffers();
-    });
-
-    showViewMyOrdersAction.setOnAction(e ->
-    {
-      ((Node) e.getSource()).getScene().getWindow().hide();
-      showViewMyOrders();
-    });
-
-    showPutNewOfferAction.setOnAction(e ->
-    {
-      ((Node) e.getSource()).getScene().getWindow().hide();
-      showPutNewOffer();
-    });
-
-    showViewMyOffersAction.setOnAction(e ->
-    {
-      ((Node) e.getSource()).getScene().getWindow().hide();
-      showViewMyOffers();
-    });
-
-    showAcceptOfferAction.setOnAction(e ->
-    {
-      ((Node) e.getSource()).getScene().getWindow().hide();
-      showAcceptOffer();
-    });
-*/
     showExchangeAction.setOnAction(e ->
     {
       ((Node) e.getSource()).getScene().getWindow().hide();
@@ -141,20 +115,27 @@ public class DashboardController implements Initializable
       ((Node) e.getSource()).getScene().getWindow().hide();
       showTransfer();
     });
-
-  /*  showMakeOrderAction.setOnAction(e ->
-    {
-      ((Node) e.getSource()).getScene().getWindow().hide();
-      showMakeOrder();
-    });
-
-    showViewAllOrdersAction.setOnAction(e ->
-    {
-      ((Node) e.getSource()).getScene().getWindow().hide();
-      showViewAllOrders();
-    });
   }
-*/
+//-----------------------------------------------------------------------------------------
+  @FXML  public boolean inviteUser(String inviteCode)// throws IOException 
+  {
+		CloseableHttpClient httpClient=null;
+		try 
+		{
+			String email=emailTxt.getText();
+			String url="http://localhost:8080/api/Users/";
+			httpClient = HttpClientBuilder.create().build();
+		    HttpPut request = new HttpPut(url);
+		    HttpResponse  response = httpClient.execute(request);
+		    if(response.getStatusLine().getStatusCode()==200)
+		    {
+		    	return true;
+		    }
+		} 
+		catch (Exception ex) 
+		{
+		} 
+		return false;
   }
 //-----------------------------------------------------------------------------------------
   @FXML  public boolean getVerified(String userId)// throws IOException 
