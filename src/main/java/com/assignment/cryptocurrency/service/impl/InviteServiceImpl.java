@@ -66,5 +66,6 @@ public class InviteServiceImpl implements InviteService {
     msg+="Join today and all your wildest dreams will come true!";
     message.setText(msg);
 
+    EmailUtil.sendSimpleMail(message);
   }
 }
