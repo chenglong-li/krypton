@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
+
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -86,8 +88,7 @@ public class DashboardController implements Initializable
     
     inviteUserBtn.setOnAction(e ->
     {
-    	String inviteCode=myInviteCode.getText();
-    	if (inviteUser(inviteCode))
+    	if (inviteUser(emailTxt.getText()))
     		emailTxt.setText("");
     });
     
@@ -117,15 +118,15 @@ public class DashboardController implements Initializable
     });
   }
 //-----------------------------------------------------------------------------------------
-  @FXML  public boolean inviteUser(String inviteCode)// throws IOException 
+  @FXML  public boolean inviteUser(String email)// throws IOException 
   {
 		CloseableHttpClient httpClient=null;
 		try 
 		{
-			String email=emailTxt.getText();
-			String url="http://localhost:8080/api/Users/";
+			String userId= Storage.getInstance().get("userId").toString();
+			String url="http://localhost:8080/api/Users/"+userId+"/Invite?email="+email;
 			httpClient = HttpClientBuilder.create().build();
-		    HttpPut request = new HttpPut(url);
+		    HttpGet request = new HttpGet(url);
 		    HttpResponse  response = httpClient.execute(request);
 		    if(response.getStatusLine().getStatusCode()==200)
 		    {

@@ -18,7 +18,7 @@ public class EmailUtil {
     mailSender.setPort(25);
     mailSender.setProtocol("smtp");
     mailSender.setUsername("longestar@sina.com");
-    mailSender.setPassword("1234");
+    mailSender.setPassword("aiyuer");
     mailSender.send(message);
   }
 
