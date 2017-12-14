@@ -61,7 +61,11 @@
       </Label>
      
      
-     
+      <Label layoutX="1080" layoutY="161.0" text="Total Price">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
      
      
      
@@ -87,7 +91,11 @@
          </font>
       </Label>
      
-     
+     <Label layoutX="1080" layoutY="210" text="" fx:id="totalPrice1">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
      
      
      
@@ -116,7 +124,11 @@
          </font>
       </Label>
       
-      
+      <Label layoutX="1080" layoutY="260" text="" fx:id="totalPrice2">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
       
       
       
@@ -145,7 +157,11 @@
             <Font size="22.0" />
          </font>
       </Label>
-      
+      <Label layoutX="1080" layoutY="310" text="" fx:id="totalPrice3">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
       
       
       
@@ -176,7 +192,11 @@
             <Font size="22.0" />
          </font>
       </Label>
-      
+      <Label layoutX="1080" layoutY="360" text="" fx:id="totalPrice4">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
       
       
       
@@ -206,5 +226,12 @@
             <Font size="22.0" />
          </font>
       </Label>
+      <Label layoutX="1080" layoutY="410" text="" fx:id="totalPrice5">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      
+      
    </children>
 </Pane>

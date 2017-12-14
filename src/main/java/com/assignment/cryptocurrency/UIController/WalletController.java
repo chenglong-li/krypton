@@ -4,11 +4,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-//import net.minidev.json.JSONArray;
 import javafx.scene.control.*;
-//import java.awt.Button;
 import java.io.BufferedReader;
-//import java.event
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -54,6 +51,11 @@ public class WalletController  implements Initializable
 	@FXML private Label price3;
 	@FXML private Label price4;
 	@FXML private Label price5;
+	@FXML private Label totalPrice1;
+	@FXML private Label totalPrice2;
+	@FXML private Label totalPrice3;
+	@FXML private Label totalPrice4;
+	@FXML private Label totalPrice5;
 	
 	Timer t;
 	String coinLabel1, coinLabel2,coinLabel3,coinLabel4,coinLabel5;
@@ -102,35 +104,55 @@ public class WalletController  implements Initializable
 		{
 			String price1s= new CoinUtil().getCoinPriceByName(coinLabel1);
 			if (price1!=null)
+			{
+				double totalPrice=Double.parseDouble(price1s)*Double.parseDouble(amount1.getText());
 				price1.setText(price1s.toString());
+				totalPrice1.setText(Double.toString(totalPrice));
+			}
 		}
 		
 		if (coinLabel2!="" && coinLabel2!=null)
 		{
 			String price2s= new CoinUtil().getCoinPriceByName(coinLabel2);
 			if (price2!=null)
+			{
+				double totalPrice=Double.parseDouble(price2s)*Double.parseDouble(amount2.getText());
 				price2.setText(price2s.toString());
+				totalPrice2.setText(Double.toString(totalPrice));
+			}
 		}
 		
 		if (coinLabel3!="" && coinLabel3!=null)
 		{
 			String price3s= new CoinUtil().getCoinPriceByName(coinLabel3);
 			if (price3!=null)
+			{
+				double totalPrice=Double.parseDouble(price3s)*Double.parseDouble(amount3.getText());
 				price3.setText(price3s.toString());
+				totalPrice3.setText(Double.toString(totalPrice));
+			}
 		}
 		
 		if (coinLabel4!="" && coinLabel4!=null)
 		{
 			String price4s= new CoinUtil().getCoinPriceByName(coinLabel4);
 			if (price4!=null)
+			{
+				double totalPrice=Double.parseDouble(price4s)*Double.parseDouble(amount4.getText());
 				price4.setText(price4s.toString());
+				totalPrice4.setText(Double.toString(totalPrice));
+			}
 		}
 		
 		if (coinLabel5!="" && coinLabel5!=null)
 		{
 			String price5s= new CoinUtil().getCoinPriceByName(coinLabel5);
 			if (price5!=null)
+			{
+				double totalPrice=Double.parseDouble(price5s)*Double.parseDouble(amount5.getText());
 				price5.setText(price5s.toString());
+				totalPrice5.setText(Double.toString(totalPrice));
+			}
 		}
 	}	
 	//---------------------------------------------------------------------

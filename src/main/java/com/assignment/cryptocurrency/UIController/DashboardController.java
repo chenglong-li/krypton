@@ -203,7 +203,7 @@ public class DashboardController implements Initializable
     }
     Stage stage = (Stage) showWalletAction.getScene().getWindow();
     stage.setTitle("Wallet");
-    stage.setScene(new Scene(root, 1100, 700));
+    stage.setScene(new Scene(root, 1300, 700));
     stage.show();
   }
 

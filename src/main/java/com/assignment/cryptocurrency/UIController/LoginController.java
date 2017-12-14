@@ -51,6 +51,7 @@ public class LoginController implements Initializable {
     
 	  loginAction.setOnAction(e ->
     {
+    	loginNoticeText.setText("");
       StringBuilder builder = getUserInfo();
       if (builder != null) 
       {
@@ -113,8 +114,8 @@ public class LoginController implements Initializable {
     try 
     {
       httpClient = HttpClientBuilder.create().build();
-//      username.setText("chenglong");
-//      password.setText("1234");
+      username.setText("chenglong");
+      password.setText("1234");
       String url="http://localhost:8080/api/Users/Login?username=" + username.getText() + "&password="+ password.getText()+"&type=admin";
       String getQuery =url; 
       HttpGet request = new HttpGet(getQuery);
@@ -147,7 +148,7 @@ public class LoginController implements Initializable {
     } 
     return null;
   }
-  
+  //-----------------------------------------------------------------------------------------
   StringBuilder getUserInfo() 
   {
     CloseableHttpClient httpClient = null;

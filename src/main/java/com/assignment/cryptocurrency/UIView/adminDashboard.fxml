@@ -5,43 +5,119 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:controller="com.assignment.cryptocurrency.UIController.DashboardAdminController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@MainStyle.css" >
-   <children >
-          <Label layoutX="28.0" layoutY="30.0" text="ADMIN DASHBOARD">
-         	<Font size="40.0" />
-      	  </Label>
-    	 
-    	 <Label layoutX="50" layoutY="100" text="First name" />
-    	 <Label layoutX="280" layoutY="100" text="Last name" />
-    	 <Label layoutX="510" layoutY="100" text="Email" />
-    	 <Label layoutX="800" layoutY="100" text="Phone" />
-    	 <Label layoutX="950" layoutY="100" text="Status" />
-    	 
-    	 <Label fx:id="firstName1" layoutX="50" layoutY="140" text="" />
-    	 <Label fx:id="lastName1" layoutX="280" layoutY="140" text=" " />
-    	 <Label fx:id="email1" layoutX="510" layoutY="140" text="" />
-    	 <Label fx:id="phone1" layoutX="800" layoutY="140" text="" />
-    	 <Label fx:id="status1" layoutX="950" layoutY="140" text="" />
-    	 <Button fx:id="verify1Btn" visible="false" layoutX="1110.0" layoutY="140" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Verify" />
-    	 
-    	  <Label fx:id="firstName2" layoutX="50" layoutY="180" text=" " />
-    	 <Label fx:id="lastName2" layoutX="280" layoutY="180" text=" " />
-    	 <Label fx:id="email2" layoutX="510" layoutY="180" text="" />
-    	 <Label fx:id="phone2" layoutX="800" layoutY="180" text="" />
-    	 <Label fx:id="status2" layoutX="950" layoutY="180" text="" />
-    	 <Button fx:id="verify2Btn" visible="false" layoutX="1110.0" layoutY="180" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Verify" />
-    	 
-    	 <Label fx:id="firstName3" layoutX="50" layoutY="220" text=" " />
-    	 <Label fx:id="lastName3" layoutX="280" layoutY="220" text="" />
-    	 <Label fx:id="email3" layoutX="510" layoutY="220" text="" />
-    	 <Label fx:id="phone3" layoutX="800" layoutY="220" text="" />
-    	 <Label fx:id="status3" layoutX="950" layoutY="220" text="" />
-    	 <Button fx:id="verify3Btn" visible="false" layoutX="1110.0" layoutY="180" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Verify" />
-    	 
-    	 
-          <Button fx:id="signOutAction" layoutX="1100.0" layoutY="400" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Sign out" />
-          
-          
-   </children>
+<Pane
+	fx:controller="com.assignment.cryptocurrency.UIController.DashboardAdminController"
+	maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+	minWidth="-Infinity" prefHeight="675.0" prefWidth="611.0"
+	xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
+	stylesheets="@MainStyle.css">
+	<children>
+		<Label layoutX="28.0" layoutY="30.0" text="ADMIN DASHBOARD">
+			<Font size="40.0" />
+		</Label>
+
+		<Label fx:id="noUsersTitle" layoutX="50" layoutY="100"
+			text="No users waiting at the moment." visible="false" />
+
+
+
+
+
+		<Label fx:id="title1" layoutX="50" layoutY="100" text="First name" />
+		<Label fx:id="title2" layoutX="230" layoutY="100" text="Last name" />
+		<Label fx:id="title3" layoutX="400" layoutY="100" text="Email" />
+		<Label fx:id="title4" layoutX="700" layoutY="100" text="Phone" />
+		<Label fx:id="title5" layoutX="850" layoutY="100" text="Status" />
+
+
+
+
+
+		<Label fx:id="firstName1" layoutX="50" layoutY="140" text="" />
+		<Label fx:id="lastName1" layoutX="230" layoutY="140" text=" " />
+		<Label fx:id="email1" layoutX="400" layoutY="140" text="" />
+		<Label fx:id="phone1" layoutX="700" layoutY="140" text="" />
+		<Label fx:id="status1" layoutX="850" layoutY="140" text="" />
+		<Button fx:id="verify1Btn" visible="false" layoutX="1000.0"
+			layoutY="140" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0"
+			text="Verify" />
+		<Button fx:id="block1Btn" visible="false" layoutX="1140.0"
+			layoutY="140" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0"
+			text="Block" />
+
+
+
+
+		<Label fx:id="firstName2" layoutX="50" layoutY="180" text=" " />
+		<Label fx:id="lastName2" layoutX="230" layoutY="180" text=" " />
+		<Label fx:id="email2" layoutX="400" layoutY="180" text="" />
+		<Label fx:id="phone2" layoutX="700" layoutY="180" text="" />
+		<Label fx:id="status2" layoutX="850" layoutY="180" text="" />
+		<Button fx:id="verify2Btn" visible="false" layoutX="1000.0"
+			layoutY="180" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0"
+			text="Verify" />
+		<Button fx:id="block2Btn" visible="false" layoutX="1140.0"
+			layoutY="180" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0"
+			text="Block" />
+
+
+
+
+
+		<Label fx:id="firstName3" layoutX="50" layoutY="220" text=" " />
+		<Label fx:id="lastName3" layoutX="230" layoutY="220" text="" />
+		<Label fx:id="email3" layoutX="400" layoutY="220" text="" />
+		<Label fx:id="phone3" layoutX="700" layoutY="220" text="" />
+		<Label fx:id="status3" layoutX="850" layoutY="220" text="" />
+		<Button fx:id="verify3Btn" visible="false" layoutX="1000.0"
+			layoutY="220" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0"
+			text="Verify" />
+		<Button fx:id="block3Btn" visible="false" layoutX="1140.0"
+			layoutY="220" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0"
+			text="Block" />
+
+
+
+
+
+		<Label fx:id="firstName4" layoutX="50" layoutY="260" text=" " />
+		<Label fx:id="lastName4" layoutX="230" layoutY="260" text="" />
+		<Label fx:id="email4" layoutX="400" layoutY="260" text="" />
+		<Label fx:id="phone4" layoutX="700" layoutY="260" text="" />
+		<Label fx:id="status4" layoutX="850" layoutY="260" text="" />
+		<Button fx:id="verify4Btn" visible="false" layoutX="1000.0"
+			layoutY="260" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0"
+			text="Verify" />
+		<Button fx:id="block4Btn" visible="false" layoutX="1140.0"
+			layoutY="260" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0"
+			text="Block" />
+
+
+
+
+
+
+		<Label fx:id="firstName5" layoutX="50" layoutY="300" text=" " />
+		<Label fx:id="lastName5" layoutX="230" layoutY="300" text="" />
+		<Label fx:id="email5" layoutX="400" layoutY="300" text="" />
+		<Label fx:id="phone5" layoutX="700" layoutY="300" text="" />
+		<Label fx:id="status5" layoutX="850" layoutY="300" text="" />
+		<Button fx:id="verify5Btn" visible="false" layoutX="1000.0"
+			layoutY="300" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0"
+			text="Verify" />
+		<Button fx:id="block5Btn" visible="false" layoutX="1140.0"
+			layoutY="300" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0"
+			text="Block" />
+
+
+
+
+
+
+		<Button fx:id="signOutAction" layoutX="1100.0" layoutY="400"
+			mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Sign out" />
+
+
+	</children>
 </Pane>
       
