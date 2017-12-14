@@ -12,6 +12,7 @@ import java.util.Random;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 /**
@@ -56,6 +57,11 @@ public class InviteServiceImpl implements InviteService {
       inviteCode = existedVoucher.getCode();
     }
 
-    EmailUtil.sendSimpleMail(email, name + " want to invite you to join Krypton, the invite code is " + inviteCode);
+    SimpleMailMessage message = new SimpleMailMessage();
+    message.setFrom("longestar@sina.com");
+    message.setTo(email);
+    message.setSubject("Verify user");
+    message.setText(name + " want to invite you to join Krypton, the invite code is " + inviteCode);
+
   }
 }
