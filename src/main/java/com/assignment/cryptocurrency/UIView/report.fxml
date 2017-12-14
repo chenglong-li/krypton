@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:controller="com.assignment.cryptocurrency.UIController.reportController"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" stylesheets="@MainStyle.css" prefWidth="628.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+   <Button layoutX="529.0" layoutY="360.0" mnemonicParsing="false" text="Back to dashborad"  fx:id="showDashboardAction"  />
+   
+   
+      <Label fx:id="dd1" layoutX="68.0" layoutY="22.0" text="ADMIN REPORT">
+         <font>
+            <Font size="44.0" />
+         </font>
+      </Label>
+       
+      
+      
+      
+      <Label layoutX="61.0" layoutY="110" text="Total users">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="240" layoutY="110" text="Total exchanges">
+         <font>
+            <Font size="32.0"  />
+         </font>
+      </Label>
+      <Label layoutX="511.0" layoutY="110" text="Total transfers">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+     
+      
+      
+      
+      <Label fx:id="totalUsers" layoutX="61.0" layoutY="160" text="" />
+      <Label fx:id="totalExchanges" layoutX="240" layoutY="160" text="" />
+      <Label fx:id="totalTransfers" layoutX="511.0" layoutY="160" text="" />
+     
+         
+           
+      
+   </children>
+</Pane>

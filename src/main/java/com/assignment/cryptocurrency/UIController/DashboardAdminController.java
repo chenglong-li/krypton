@@ -82,6 +82,8 @@ public class DashboardAdminController implements Initializable
 	@FXML  private Button block5Btn;
 	
 	@FXML  private Button signOutAction;
+	@FXML  private Button reportAction;
+	
 	String userId1;
 	String userId2;
 	String userId3;
@@ -200,6 +202,26 @@ public class DashboardAdminController implements Initializable
 	    		block5Btn.setVisible(false);
 	    	}
 	    });
+		
+		reportAction.setOnAction(e ->
+	    {
+	    	//Storage.getInstance().save("adminId", adminid);
+	    	showReportWindow();
+	    });
+	}
+	//-----------------------------------------------------------------------------------------
+	void showReportWindow()
+	{
+		Parent root = null;
+	    try {
+	      root = FXMLLoader.load(getClass().getResource("../UIView/report.fxml"));
+	    } catch (IOException e1) {
+	      e1.printStackTrace();
+	    }
+	    Stage stage = (Stage) reportAction.getScene().getWindow();
+	    stage.setTitle("report");
+	    stage.setScene(new Scene(root, 800, 405));
+	    stage.show();
 	}
 	//-----------------------------------------------------------------------------------------
 	void showLoginWindow() 

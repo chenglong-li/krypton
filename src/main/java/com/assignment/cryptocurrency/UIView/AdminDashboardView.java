@@ -30,19 +30,16 @@ public class AdminDashboardView extends Application
 	//----------------------------------------------------------------------
 	public void start(Stage stage) throws Exception 
 	{
-		System.out.println("************a1***************");
 		root = FXMLLoader.load(getClass().getResource("adminDashboard.fxml"));
         
         stage.setTitle("Admin Dashboard");
         stage.setScene(new Scene(root, 1100, 500));
         stage.show();
-        System.out.println("************a2***************");
         //prepareDashboard();
     }
 	//-----------------------------------------------------------------------------------------
     public static void main(String[] args) 
     {
-    	System.out.println("************aaaaa***************");
         Application.launch(AdminDashboardView.class, args);
     }
   

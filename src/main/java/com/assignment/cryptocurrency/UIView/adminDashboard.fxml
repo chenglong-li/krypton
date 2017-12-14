@@ -116,7 +116,9 @@
 
 		<Button fx:id="signOutAction" layoutX="1100.0" layoutY="400"
 			mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Sign out" />
-
+	
+		<Button fx:id="reportAction" layoutX="1100.0" layoutY="350"
+			mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Report" />
 
 	</children>
 </Pane>
