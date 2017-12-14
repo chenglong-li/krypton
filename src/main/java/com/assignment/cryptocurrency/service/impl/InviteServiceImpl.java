@@ -60,8 +60,11 @@ public class InviteServiceImpl implements InviteService {
     SimpleMailMessage message = new SimpleMailMessage();
     message.setFrom("longestar@sina.com");
     message.setTo(email);
-    message.setSubject("Verify user");
-    message.setText(name + " want to invite you to join Krypton, the invite code is " + inviteCode);
+    message.setSubject("Join Krypton!");
+    String msg=name + " wants to invite you to join Krypton. The invite code is " + inviteCode;
+    msg+="Did you know that you will get 20 bitcoins for free as soon as you join?";
+    msg+="Join today and all your wildest dreams will come true!";
+    message.setText(msg);
 
     EmailUtil.sendSimpleMail(message);
   }
