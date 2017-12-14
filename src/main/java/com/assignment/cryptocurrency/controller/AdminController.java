@@ -2,7 +2,9 @@ package com.assignment.cryptocurrency.controller;
 
 
 import com.assignment.cryptocurrency.general.Validation;
+import com.assignment.cryptocurrency.model.projection.Report;
 import com.assignment.cryptocurrency.model.entity.User;
+import com.assignment.cryptocurrency.service.AdminService;
 import com.assignment.cryptocurrency.service.UserService;
 import javassist.NotFoundException;
 import org.slf4j.Logger;
@@ -24,11 +26,13 @@ public class AdminController {
 
   private final Validation validation;
   private final UserService userService;
+  private final AdminService adminService;
 
   public AdminController(Validation validation,
-      UserService userService) {
+      UserService userService, AdminService adminService) {
     this.validation = validation;
     this.userService = userService;
+    this.adminService = adminService;
   }
 
   @RequestMapping(value = "/{id}/Users/{userId}", method = RequestMethod.PUT)
@@ -51,6 +55,12 @@ public class AdminController {
     User user = new User();
     user.setStatus(status.toUpperCase());
     return userService.findAll(user, new PageRequest(page, size));
+  }
+
+  @RequestMapping(value = "/{id}/Report", method = RequestMethod.GET)
+  public Report view(@PathVariable Integer id) throws NotFoundException {
+    validation.verifyByAdminId(id);
+    return adminService.viewReport();
   }
 
 }
