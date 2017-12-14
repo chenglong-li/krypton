@@ -6,13 +6,8 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 public class EmailUtil {
 
-  public static void sendSimpleMail(String to, String content) {
+  public static void sendSimpleMail(SimpleMailMessage message) {
     JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-    SimpleMailMessage message = new SimpleMailMessage();
-    message.setFrom("longestar@sina.com");
-    message.setTo(to);
-    message.setSubject("Verify user");
-    message.setText(content);
     mailSender.setDefaultEncoding("utf-8");
     mailSender.setHost("smtp.sina.com");
     mailSender.setPort(25);
