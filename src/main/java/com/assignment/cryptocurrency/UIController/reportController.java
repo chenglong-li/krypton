@@ -51,8 +51,6 @@ public class reportController  implements Initializable
 	    });
 	}
 	//---------------------------------------------------------------------
-	
-	//---------------------------------------------------------------------
 	void fillLabelsFromStringBuilder(StringBuilder builder)
 	{
 		JSONObject jsonObj = new JSONObject(builder.toString());
