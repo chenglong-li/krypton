@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TextField?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@MainStyle.css" fx:controller="com.assignment.cryptocurrency.UIController.DashboardController">
    <children>
@@ -17,8 +18,10 @@
           <Label fx:id="firstNameLbl" layoutX="258" layoutY="70" text="" />
           <Label fx:id="lastNameLbl" layoutX="258" layoutY="110" text="" />
           <Label fx:id="statusLbl" layoutX="258" layoutY="150" text="" />
-     	  <Button fx:id="showInviteCode" layoutX="54.0" layoutY="190.0" mnemonicParsing="false" onAction="#showMyInviteCode" prefHeight="31.0" prefWidth="168.0" text="Show my invite code" />
-     	  <Label fx:id="myInviteCode" layoutX="258.0" layoutY="190" text="" />
+     	  <Button fx:id="inviteUserBtn" layoutX="350.0" layoutY="190.0" mnemonicParsing="false" onAction="#showMyInviteCode" prefHeight="31.0" prefWidth="168.0" text="Invite" />
+     	    <TextField fx:id="emailTxt" layoutX="560.0" layoutY="190" prefHeight="30.0" prefWidth="220.0" text="Enter email here"/>
+     	    <Label  layoutX="54" layoutY="190" text="Invite Code" />
+     	   <Label fx:id="myInviteCode" layoutX="258.0" layoutY="190" text="" />
     	  <Button fx:id="getVerifiedBtn" layoutX="54.0" layoutY="230.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="168.0" text="Get verified" />
     	 
     	 
