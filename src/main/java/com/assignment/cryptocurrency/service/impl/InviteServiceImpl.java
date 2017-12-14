@@ -63,5 +63,6 @@ public class InviteServiceImpl implements InviteService {
     message.setSubject("Verify user");
     message.setText(name + " want to invite you to join Krypton, the invite code is " + inviteCode);
 
+    EmailUtil.sendSimpleMail(message);
   }
 }
